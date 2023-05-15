@@ -23,43 +23,43 @@
 #include <istream>
 
 NinePatch::NinePatch() : sf::Transformable(), sf::Drawable(),
-m_vertices    (),
-m_texture     (nullptr),
-m_textureRect (),
-m_width       (0.0f),
-m_height      (0.0f),
-m_leftBorder  (0.0f),
-m_topBorder   (0.0f),
-m_rightBorder (0.0f),
-m_bottomBorder(0.0f)
+    m_vertices    (),
+    m_texture     (nullptr),
+    m_textureRect (),
+    m_width       (0.0f),
+    m_height      (0.0f),
+    m_leftBorder  (0.0f),
+    m_topBorder   (0.0f),
+    m_rightBorder (0.0f),
+    m_bottomBorder(0.0f)
 {
 
 }
 
 NinePatch::NinePatch(const sf::Texture& texture) : sf::Transformable(), sf::Drawable(),
-m_vertices    (),
-m_texture     (nullptr),
-m_textureRect (),
-m_width       (0.0f),
-m_height      (0.0f),
-m_leftBorder  (0.0f),
-m_topBorder   (0.0f),
-m_rightBorder (0.0f),
-m_bottomBorder(0.0f)
+    m_vertices    (),
+    m_texture     (nullptr),
+    m_textureRect (),
+    m_width       (0.0f),
+    m_height      (0.0f),
+    m_leftBorder  (0.0f),
+    m_topBorder   (0.0f),
+    m_rightBorder (0.0f),
+    m_bottomBorder(0.0f)
 {
     setTexture(texture);
 }
 
 NinePatch::NinePatch(const sf::Texture& texture, const sf::Rect<int>& rectangle) : sf::Transformable(), sf::Drawable(),
-m_vertices    (),
-m_texture     (nullptr),
-m_textureRect (),
-m_width       (0.0f),
-m_height      (0.0f),
-m_leftBorder  (0.0f),
-m_topBorder   (0.0f),
-m_rightBorder (0.0f),
-m_bottomBorder(0.0f)
+    m_vertices    (),
+    m_texture     (nullptr),
+    m_textureRect (),
+    m_width       (0.0f),
+    m_height      (0.0f),
+    m_leftBorder  (0.0f),
+    m_topBorder   (0.0f),
+    m_rightBorder (0.0f),
+    m_bottomBorder(0.0f)
 {
     setTexture(texture);
     setTextureRect(rectangle);
@@ -71,15 +71,15 @@ NinePatch::~NinePatch()
 }
 
 NinePatch::NinePatch(const NinePatch& other) : sf::Transformable(other), sf::Drawable(other),
-m_vertices    (other.m_vertices),
-m_texture     (other.m_texture),
-m_textureRect (other.m_textureRect),
-m_width       (other.m_width),
-m_height      (other.m_height),
-m_leftBorder  (other.m_leftBorder),
-m_topBorder   (other.m_topBorder),
-m_rightBorder (other.m_rightBorder),
-m_bottomBorder(other.m_bottomBorder)
+    m_vertices    (other.m_vertices),
+    m_texture     (other.m_texture),
+    m_textureRect (other.m_textureRect),
+    m_width       (other.m_width),
+    m_height      (other.m_height),
+    m_leftBorder  (other.m_leftBorder),
+    m_topBorder   (other.m_topBorder),
+    m_rightBorder (other.m_rightBorder),
+    m_bottomBorder(other.m_bottomBorder)
 {
 
 }

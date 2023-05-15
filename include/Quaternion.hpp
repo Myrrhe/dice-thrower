@@ -82,10 +82,10 @@ public:
 
     static const double epsilon;
 
-double x;
-double y;
-double z;
-double t;
+    double x;
+    double y;
+    double z;
+    double t;
 
 protected:
 

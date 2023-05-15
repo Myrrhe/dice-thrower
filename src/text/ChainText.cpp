@@ -1,12 +1,12 @@
-#include "ChainText.hpp"
+#include "text/ChainText.hpp"
 #include "func.hpp"
 #include <iostream>
 
 ChainText::ChainText() :
-nodes({}),
-leafs({}),
-blocks({}),
-blocksClosing({})
+    nodes( {}),
+       leafs({}),
+       blocks({}),
+       blocksClosing({})
 {
     //ctor
 }
@@ -17,16 +17,16 @@ ChainText::~ChainText()
 }
 
 ChainText::ChainText(const ChainText& other) :
-nodes(other.nodes),
-leafs(other.leafs),
-blocks(other.blocks),
-blocksClosing(other.blocksClosing)
+    nodes(other.nodes),
+    leafs(other.leafs),
+    blocks(other.blocks),
+    blocksClosing(other.blocksClosing)
 {
     //copy ctor
 }
 
 ChainText::ChainText(const std::u32string& str) :
-nodes({}),
+    nodes( {}),
 leafs({}),
 blocks({}),
 blocksClosing({})
@@ -52,7 +52,7 @@ blocksClosing({})
 }
 
 ChainText::ChainText(const std::string& str) :
-nodes({}),
+    nodes( {}),
 leafs({}),
 blocks({}),
 blocksClosing({})

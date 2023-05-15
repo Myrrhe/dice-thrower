@@ -1,7 +1,7 @@
-#include "LeafText.hpp"
+#include "text/LeafText.hpp"
 
 LeafText::LeafText() : NodeText(),
-str(U"")
+    str(U"")
 {
     //ctor
 }
@@ -12,19 +12,19 @@ LeafText::~LeafText()
 }
 
 LeafText::LeafText(const LeafText& other) : NodeText(other),
-str(other.str)
+    str(other.str)
 {
     //copy ctor
 }
 
 LeafText::LeafText(const std::u32string& newStr) : NodeText(),
-str(newStr)
+    str(newStr)
 {
 
 }
 
 LeafText::LeafText(char32_t char32) : NodeText(),
-str(std::u32string(1, char32))
+    str(std::u32string(1, char32))
 {
 
 }

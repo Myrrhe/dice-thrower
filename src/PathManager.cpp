@@ -42,41 +42,41 @@ std::string PathManager::getPath(Dir dir)
     std::string addPath = "";
     switch (dir)
     {
-        case Dir::ROOT:
-        {
-            addPath = "";
-            break;
-        }
-        case Dir::DAT:
-        {
-            addPath = FolderDat;
-            break;
-        }
-        case Dir::IMG:
-        {
-            addPath = FolderDat + OsManager::Slash + FolderImg;
-            break;
-        }
-        case Dir::SOUND:
-        {
-            addPath = FolderDat + OsManager::Slash + FolderSound;
-            break;
-        }
-        case Dir::FONT:
-        {
-            addPath = FolderDat + OsManager::Slash + FolderFont;
-            break;
-        }
-        case Dir::SCREENSHOT:
-        {
-            addPath = FolderDat + OsManager::Slash + FolderScreenshot;
-            break;
-        }
-        default:
-        {
-            addPath = "";
-            break;
-        }
+    case Dir::ROOT:
+    {
+        addPath = "";
+        break;
+    }
+    case Dir::DAT:
+    {
+        addPath = FolderDat;
+        break;
+    }
+    case Dir::IMG:
+    {
+        addPath = FolderDat + OsManager::Slash + FolderImg;
+        break;
+    }
+    case Dir::SOUND:
+    {
+        addPath = FolderDat + OsManager::Slash + FolderSound;
+        break;
+    }
+    case Dir::FONT:
+    {
+        addPath = FolderDat + OsManager::Slash + FolderFont;
+        break;
+    }
+    case Dir::SCREENSHOT:
+    {
+        addPath = FolderDat + OsManager::Slash + FolderScreenshot;
+        break;
+    }
+    default:
+    {
+        addPath = "";
+        break;
+    }
     }
     return pathVar + path + addPath;
 }

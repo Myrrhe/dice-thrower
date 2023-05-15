@@ -22,8 +22,8 @@
 #include <istream>
 
 ClickableWidget::ClickableWidget() :
-state(State::MOUSE_NOT_ON_WIDGET),
-newState(State::MOUSE_NOT_ON_WIDGET)
+    state(State::MOUSE_NOT_ON_WIDGET),
+    newState(State::MOUSE_NOT_ON_WIDGET)
 {
     //ctor
 }
@@ -34,8 +34,8 @@ ClickableWidget::~ClickableWidget()
 }
 
 ClickableWidget::ClickableWidget(const ClickableWidget& other) : Widget(other),
-state(other.state),
-newState(other.newState)
+    state(other.state),
+    newState(other.newState)
 {
     //copy ctor
 }

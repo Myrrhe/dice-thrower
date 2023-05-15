@@ -37,8 +37,8 @@ void LogManager::append(const std::string& s)
 {
     std::ofstream logFile((PathManager::getPath(PathManager::Dir::DAT) + OsManager::Slash + LogName + LogExtension).c_str(), std::ios_base::out | std::ios_base::app);
     logFile << s;
-    #if PERF
-        std::cout << s;
-    #endif // PERF
+#if PERF
+    std::cout << s;
+#endif // PERF
     logFile.close();
 }

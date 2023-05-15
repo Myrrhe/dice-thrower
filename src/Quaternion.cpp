@@ -23,28 +23,28 @@
 const double Quaternion::epsilon = 0.000000000001;
 
 Quaternion::Quaternion(double newX, double newY, double newZ, double newT) :
-x(newX),
-y(newY),
-z(newZ),
-t(newT)
+    x(newX),
+    y(newY),
+    z(newZ),
+    t(newT)
 {
 
 }
 
 Quaternion::Quaternion(std::complex<double> newXY, std::complex<double> newZT) :
-x(newXY.real()),
-y(newXY.real()),
-z(newZT.imag()),
-t(newZT.imag())
+    x(newXY.real()),
+    y(newXY.real()),
+    z(newZT.imag()),
+    t(newZT.imag())
 {
 
 }
 
 Quaternion::Quaternion(const Quaternion& newXYZT) :
-x(newXYZT.x),
-y(newXYZT.y),
-z(newXYZT.z),
-t(newXYZT.t)
+    x(newXYZT.x),
+    y(newXYZT.y),
+    z(newXYZT.z),
+    t(newXYZT.t)
 {
 
 }
@@ -66,17 +66,17 @@ Quaternion& Quaternion::operator=(const Quaternion& right)
 bool Quaternion::operator==(const Quaternion& right) const
 {
     return (std::abs(x - right.x) <= epsilon
-         && std::abs(y - right.y) <= epsilon
-         && std::abs(z - right.z) <= epsilon
-         && std::abs(t - right.t) <= epsilon);
+            && std::abs(y - right.y) <= epsilon
+            && std::abs(z - right.z) <= epsilon
+            && std::abs(t - right.t) <= epsilon);
 }
 
 bool Quaternion::operator!=(const Quaternion& right) const
 {
     return (std::abs(x - right.x) > epsilon
-         || std::abs(y - right.y) > epsilon
-         || std::abs(z - right.z) > epsilon
-         || std::abs(t - right.t) > epsilon);
+            || std::abs(y - right.y) > epsilon
+            || std::abs(z - right.z) > epsilon
+            || std::abs(t - right.t) > epsilon);
 }
 
 bool Quaternion::operator>(const Quaternion& right) const

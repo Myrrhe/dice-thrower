@@ -1,4 +1,4 @@
-#include "NodeText.hpp"
+#include "text/NodeText.hpp"
 #include <iostream>
 #include <istream>
 

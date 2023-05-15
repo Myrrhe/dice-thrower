@@ -24,10 +24,10 @@
 #include <istream>
 
 Widget::Widget() :
-width(0.0f),
-height(0.0f),
-focused(false),
-window(nullptr)
+    width(0.0f),
+    height(0.0f),
+    focused(false),
+    window(nullptr)
 {
     //ctor
 }
@@ -38,10 +38,10 @@ Widget::~Widget()
 }
 
 Widget::Widget(const Widget& other) : sf::Transformable(other), sf::Drawable(other),
-width(other.width),
-height(other.height),
-focused(other.focused),
-window(nullptr)
+    width(other.width),
+    height(other.height),
+    focused(other.focused),
+    window(nullptr)
 {
     //copy ctor
 }
@@ -71,12 +71,12 @@ bool Widget::isMouseOnWidget() const
 {
     //sf::Rect<float> rectInput(getLocalBounds().width*0.5f - width*0.5f, getLocalBounds().height*0.5f - height*0.5f, width, height);
     sf::Rect<float> rectInput = getLocalBounds();
-    #if DEBUG
-        if (window == nullptr)
-        {
-            std::cout << "Warning : No window has been assigned to the widget." << std::endl;
-        }
-    #endif // DEBUG
+#if DEBUG
+    if (window == nullptr)
+    {
+        std::cout << "Warning : No window has been assigned to the widget." << std::endl;
+    }
+#endif // DEBUG
     sf::Vector2<float> posMouseRel = getInverseTransform().transformPoint(static_cast<sf::Vector2<float> >(sf::Mouse::getPosition(*window)));
     return rectInput.contains(posMouseRel);
 }

@@ -23,11 +23,11 @@
 #include <SFML/Graphics.hpp>
 
 #ifdef __linux__
-    #define __GNU__CONST__ [[gnu::const]]
-    #define __GNU__PURE__ [[gnu::pure]]
+#define __GNU__CONST__ [[gnu::const]]
+#define __GNU__PURE__ [[gnu::pure]]
 #elif _WIN32
-    #define __GNU__CONST__
-    #define __GNU__PURE__
+#define __GNU__CONST__
+#define __GNU__PURE__
 #elif _OSX
 
 #endif // __linux__
