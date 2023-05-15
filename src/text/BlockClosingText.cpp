@@ -1,4 +1,4 @@
-#include "BlockClosingText.hpp"
+#include "text/BlockClosingText.hpp"
 #include "Global.hpp"
 
 BlockClosingText::BlockClosingText() : NodeText()

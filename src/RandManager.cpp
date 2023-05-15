@@ -29,19 +29,19 @@
 //std::array<std::mt19937n 3ul> RandManager::mt;
 
 std::array<std::mersenne_twister_engine<uint_fast32_t,
-                                        32,
-                                        624,
-                                        397,
-                                        31,
-                                        0x9908b0df,
-                                        11,
-                                        0xffffffff,
-                                        7,
-                                        0x9d2c5680,
-                                        15,
-                                        0xefc60000,
-                                        18,
-                                        1812433253>, RandManager::nbGen> RandManager::mt;
+    32,
+    624,
+    397,
+    31,
+    0x9908b0df,
+    11,
+    0xffffffff,
+    7,
+    0x9d2c5680,
+    15,
+    0xefc60000,
+    18,
+    1812433253>, RandManager::nbGen> RandManager::mt;
 
 uint_fast32_t RandManager::mainSeed;
 //std::seed_seq* RandManager::seedSeq;
@@ -69,9 +69,9 @@ void RandManager::setMain(bool giveNewSeed, uint_fast32_t newMainSeed) //Set mai
         mainSeed = static_cast<uint_fast32_t>(time(nullptr));
         //seedSeq = new std::seed_seq({static_cast<unsigned int>(time(nullptr))});
     }
-    #if DEBUG
-        std::cout << "mainSeed = " << mainSeed << std::endl;
-    #endif // DEBUG
+#if DEBUG
+    std::cout << "mainSeed = " << mainSeed << std::endl;
+#endif // DEBUG
     counter = 0;
     //std::srand(mainSeed);
     mt[0].seed(mainSeed);
@@ -79,27 +79,27 @@ void RandManager::setMain(bool giveNewSeed, uint_fast32_t newMainSeed) //Set mai
 
     idLog = 0;
 
-    #if DEBUG_RAND && DEBUG
-        bool fileExist;
-        do
+#if DEBUG_RAND && DEBUG
+    bool fileExist;
+    do
+    {
+        std::ifstream logFile(OsManager::getPath() + "/log/" + static_cast<std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >&>((std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >() << std::dec << idLog)).str() + ".txt");
+        if (logFile)
         {
-            std::ifstream logFile(OsManager::getPath() + "/log/" + static_cast<std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >&>((std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >() << std::dec << idLog)).str() + ".txt");
-            if (logFile)
-            {
-                logFile.close();
-                fileExist = true;
-                idLog++;
-            }
-            else
-            {
-                fileExist = false;
-                logFile.close();
-                std::ofstream newLogFile(OsManager::getPath() + "/log/" + static_cast<std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >&>((std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >() << std::dec << idLog)).str() + ".txt");
-                newLogFile.close();
-            }
+            logFile.close();
+            fileExist = true;
+            idLog++;
         }
-        while (fileExist);
-    #endif // DEBUG_RAND && DEBUG
+        else
+        {
+            fileExist = false;
+            logFile.close();
+            std::ofstream newLogFile(OsManager::getPath() + "/log/" + static_cast<std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >&>((std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >() << std::dec << idLog)).str() + ".txt");
+            newLogFile.close();
+        }
+    }
+    while (fileExist);
+#endif // DEBUG_RAND && DEBUG
 
 }
 
@@ -114,30 +114,30 @@ uint_fast32_t RandManager::getMainSeed() //Get mainSeed
 }
 
 long unsigned int RandManager::mainRand(const std::string&
-                                    #if DEBUG_RAND && DEBUG
+#if DEBUG_RAND && DEBUG
                                         str1
-                                    #endif // DEBUG_RAND && DEBUG
-                                    , const std::string&
-                                    #if DEBUG_RAND && DEBUG
+#endif // DEBUG_RAND && DEBUG
+                                        , const std::string&
+#if DEBUG_RAND && DEBUG
                                         str2
-                                    #endif // DEBUG_RAND && DEBUG
-                                    , int
-                                    #if DEBUG_RAND && DEBUG
+#endif // DEBUG_RAND && DEBUG
+                                        , int
+#if DEBUG_RAND && DEBUG
                                         int1
-                                    #endif // DEBUG_RAND && DEBUG
-                                    ) //Get a random number from mt
+#endif // DEBUG_RAND && DEBUG
+                                       ) //Get a random number from mt
 {
     uint_fast32_t newRand = mt[0]();
     //std::cout << "FILE = " << str1 << " : LINE = " << int1 << " : newRand : " << counter << " = " << newRand << std::endl;
 
 
-    #if DEBUG_RAND && DEBUG
-        counter++;
-        std::ofstream logFile;
-        logFile.open(OsManager::getPath() + "/log/" + static_cast<std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >&>((std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >() << std::dec << idLog)).str() + ".txt", std::ios::app);
-        logFile << "FILE = " << str1 << " : FUNCTION = " << str2 << " : LINE = " << int1 << " : Counter = " << counter << /*" : Watch = " << Stage1::getWatch() << */" : Rand = " << newRand << std::endl;
-        logFile.close();
-    #endif // DEBUG_RAND && DEBUG
+#if DEBUG_RAND && DEBUG
+    counter++;
+    std::ofstream logFile;
+    logFile.open(OsManager::getPath() + "/log/" + static_cast<std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >&>((std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >() << std::dec << idLog)).str() + ".txt", std::ios::app);
+    logFile << "FILE = " << str1 << " : FUNCTION = " << str2 << " : LINE = " << int1 << " : Counter = " << counter << /*" : Watch = " << Stage1::getWatch() << */" : Rand = " << newRand << std::endl;
+    logFile.close();
+#endif // DEBUG_RAND && DEBUG
 
 
 
@@ -170,26 +170,26 @@ long unsigned int RandManager::genRand(IdRand idRand)
 {
     switch (idRand)
     {
-        case IdRand::MAIN:
-        {
-            return mt[0]();
-            break;
-        }
-        case IdRand::SECO:
-        {
-            return mt[1]();
-            break;
-        }
-        case IdRand::LOAD:
-        {
-            return mt[2]();
-            break;
-        }
-        default:
-        {
-            return 0;
-            break;
-        }
+    case IdRand::MAIN:
+    {
+        return mt[0]();
+        break;
+    }
+    case IdRand::SECO:
+    {
+        return mt[1]();
+        break;
+    }
+    case IdRand::LOAD:
+    {
+        return mt[2]();
+        break;
+    }
+    default:
+    {
+        return 0;
+        break;
+    }
     }
 }
 

@@ -121,16 +121,16 @@ private:
     static bool shiftEntered;
     static bool systemEntered;
 
-    #if DEBUG
-        static long unsigned int thickerLock;
-        static long unsigned int thickerStep;
-        static bool isLock;
-        static const long unsigned int DurationThickerLock;
-        static const long unsigned int DurationThickerStep;
-    #endif // DEBUG
-    #if PERF
-        static double timeCreation;
-    #endif // PERF
+#if DEBUG
+    static long unsigned int thickerLock;
+    static long unsigned int thickerStep;
+    static bool isLock;
+    static const long unsigned int DurationThickerLock;
+    static const long unsigned int DurationThickerStep;
+#endif // DEBUG
+#if PERF
+    static double timeCreation;
+#endif // PERF
 };
 
 #endif // WINDOW_HPP

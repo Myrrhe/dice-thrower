@@ -25,23 +25,23 @@ class ScreenCapturer final
 {
 public:
 
-ScreenCapturer() = delete;
-ScreenCapturer(const ScreenCapturer& right) = delete;
-ScreenCapturer(ScreenCapturer&& right) = delete;
-ScreenCapturer& operator=(const ScreenCapturer& right) = delete;
-ScreenCapturer& operator=(ScreenCapturer&& right) = delete;
-~ScreenCapturer() = delete;
+    ScreenCapturer() = delete;
+    ScreenCapturer(const ScreenCapturer& right) = delete;
+    ScreenCapturer(ScreenCapturer&& right) = delete;
+    ScreenCapturer& operator=(const ScreenCapturer& right) = delete;
+    ScreenCapturer& operator=(ScreenCapturer&& right) = delete;
+    ~ScreenCapturer() = delete;
 
-static void initialize();
-static void saveTexture();
-static void resetWatchScreenShot();
-static void getInput();
-static void update();
-static void draw(sf::RenderTarget& renderTarget);
-static bool isScreenShot();
-static long unsigned int getWatchScreenShot();
-static sf::RenderTexture& getRenderTexture();
-static void terminate();
+    static void initialize();
+    static void saveTexture();
+    static void resetWatchScreenShot();
+    static void getInput();
+    static void update();
+    static void draw(sf::RenderTarget& renderTarget);
+    static bool isScreenShot();
+    static long unsigned int getWatchScreenShot();
+    static sf::RenderTexture& getRenderTexture();
+    static void terminate();
 
     static const long unsigned int DurationCoolDownScreenShot;
     static const long unsigned int DurationFlash;

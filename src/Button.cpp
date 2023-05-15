@@ -23,17 +23,17 @@
 #include <istream>
 
 Button::Button() :
-texture(nullptr),
-vertices(std::array<sf::Vertex, 4>()),
-textureRect(sf::Rect<int>(0, 0, 0, 0))
+    texture(nullptr),
+    vertices(std::array<sf::Vertex, 4>()),
+    textureRect(sf::Rect<int>(0, 0, 0, 0))
 {
     //ctor
 }
 
 Button::Button(float newWidth, float newHeight, const sf::Texture* newTexture, const sf::Window* newWindow) :
-texture(nullptr),
-vertices(std::array<sf::Vertex, 4>()),
-textureRect(sf::Rect<int>())
+    texture(nullptr),
+    vertices(std::array<sf::Vertex, 4>()),
+    textureRect(sf::Rect<int>())
 {
     width = newWidth;
     height = newHeight;
@@ -47,9 +47,9 @@ Button::~Button()
 }
 
 Button::Button(const Button& other) : ClickableWidget(other),
-texture(other.texture),
-vertices(other.vertices),
-textureRect(other.textureRect)
+    texture(other.texture),
+    vertices(other.vertices),
+    textureRect(other.textureRect)
 {
     //copy ctor
 }
@@ -123,14 +123,46 @@ void Button::updateTexCoords()
     int posTex;
     switch (state)
     {
-        case State::MOUSE_NOT_ON_WIDGET:         {posTex = 0; break;}
-        case State::MOUSE_CLICKED_NOT_ON_WIDGET: {posTex = 0; break;}
-        case State::MOUSE_CLICKED_OUT_ON_WIDGET: {posTex = 1; break;}
-        case State::MOUSE_ON_WIDGET:             {posTex = 1; break;}
-        case State::MOUSE_CLICKED:               {posTex = 2; break;}
-        case State::MOUSE_CLICKED_OUT_OF_WIDGET: {posTex = 3; break;}
-        case State::CLICKED:                     {posTex = 0; break;}
-        default:                                 {posTex = 0; break;}
+    case State::MOUSE_NOT_ON_WIDGET:
+    {
+        posTex = 0;
+        break;
+    }
+    case State::MOUSE_CLICKED_NOT_ON_WIDGET:
+    {
+        posTex = 0;
+        break;
+    }
+    case State::MOUSE_CLICKED_OUT_ON_WIDGET:
+    {
+        posTex = 1;
+        break;
+    }
+    case State::MOUSE_ON_WIDGET:
+    {
+        posTex = 1;
+        break;
+    }
+    case State::MOUSE_CLICKED:
+    {
+        posTex = 2;
+        break;
+    }
+    case State::MOUSE_CLICKED_OUT_OF_WIDGET:
+    {
+        posTex = 3;
+        break;
+    }
+    case State::CLICKED:
+    {
+        posTex = 0;
+        break;
+    }
+    default:
+    {
+        posTex = 0;
+        break;
+    }
     }
     vertices[0].texCoords = sf::Vector2<float>(left, top + static_cast<float>(posTex*textureRect.height/4));
     vertices[1].texCoords = sf::Vector2<float>(left, top + static_cast<float>((posTex + 1)*textureRect.height/4));

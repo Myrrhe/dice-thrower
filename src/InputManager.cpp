@@ -17,13 +17,15 @@ bool InputManager::firstFrameMouseClicked;
 sf::Vector2<int> InputManager::firstPosMouseClicked;
 
 const std::array<std::string, sf::Joystick::AxisCount> InputManager::strAxis = {{"X",
-                                                                                 "Y",
-                                                                                 "Z",
-                                                                                 "R",
-                                                                                 "U",
-                                                                                 "V",
-                                                                                 "PovX",
-                                                                                 "PovY"}};
+        "Y",
+        "Z",
+        "R",
+        "U",
+        "V",
+        "PovX",
+        "PovY"
+    }
+};
 
 void InputManager::initialize()
 {
@@ -125,7 +127,7 @@ const sf::Vector2<int>& InputManager::getFirstPosMouseClicked()
 
 bool InputManager::isInput(const std::string& str)
 {
-	bool res = false;
+    bool res = false;
     res = res || str == "A";
     res = res || str == "B";
     res = res || str == "C";
@@ -269,19 +271,19 @@ bool InputManager::isInputPressed()
         res = res || sf::Mouse::isButtonPressed(static_cast<sf::Mouse::Button>(i));
     }
     for (unsigned int i = 0u; i < sf::Joystick::Count; i++)
-	{
+    {
         for (unsigned int j = 0; j < sf::Joystick::AxisCount; j++)
         {
             res = res || (sf::Joystick::isConnected(i)
-                       && sf::Joystick::hasAxis(i, static_cast<sf::Joystick::Axis>(j))
-                       && (sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) > static_cast<float>(Input::getJoystickSensitivity())
-                        || sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) < -static_cast<float>(Input::getJoystickSensitivity())));
+                          && sf::Joystick::hasAxis(i, static_cast<sf::Joystick::Axis>(j))
+                          && (sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) > static_cast<float>(Input::getJoystickSensitivity())
+                              || sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) < -static_cast<float>(Input::getJoystickSensitivity())));
         }
-	    for (unsigned int j = 0u; j < sf::Joystick::ButtonCount; j++)
-	    {
+        for (unsigned int j = 0u; j < sf::Joystick::ButtonCount; j++)
+        {
             res = res || (sf::Joystick::isConnected(i) && sf::Joystick::isButtonPressed(i, j));
-	    }
-	}
+        }
+    }
     return res;
 }
 
@@ -303,25 +305,25 @@ Input InputManager::getInputPressed()
         }
     }
     for (unsigned int i = 0u; i < sf::Joystick::Count; i++)
-	{
+    {
         for (unsigned int j = 0; j < sf::Joystick::AxisCount; j++)
         {
             if (sf::Joystick::isConnected(i)
-             && sf::Joystick::hasAxis(i, static_cast<sf::Joystick::Axis>(j))
-             && (sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) > static_cast<float>(Input::getJoystickSensitivity())
-              || sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) < -static_cast<float>(Input::getJoystickSensitivity())))
+                    && sf::Joystick::hasAxis(i, static_cast<sf::Joystick::Axis>(j))
+                    && (sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) > static_cast<float>(Input::getJoystickSensitivity())
+                        || sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) < -static_cast<float>(Input::getJoystickSensitivity())))
             {
                 res = Input(static_cast<sf::Joystick::Axis>(j), i, sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) > static_cast<float>(Input::getJoystickSensitivity()));
             }
         }
-	    for (unsigned int j = 0; j < sf::Joystick::ButtonCount; j++)
-	    {
+        for (unsigned int j = 0; j < sf::Joystick::ButtonCount; j++)
+        {
             if (sf::Joystick::isConnected(i) && sf::Joystick::isButtonPressed(i, j))
-			{
-				res = Input(j, i);
-			}
-	    }
-	}
+            {
+                res = Input(j, i);
+            }
+        }
+    }
     return res;
 }
 
@@ -347,9 +349,9 @@ std::vector<Input> InputManager::getAllInputPressed()
         for (unsigned int j = 0; j < sf::Joystick::AxisCount; j++)
         {
             if (sf::Joystick::isConnected(i)
-             && sf::Joystick::hasAxis(i, static_cast<sf::Joystick::Axis>(j))
-             && (sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) > static_cast<float>(Input::getJoystickSensitivity())
-              || sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) < -static_cast<float>(Input::getJoystickSensitivity())))
+                    && sf::Joystick::hasAxis(i, static_cast<sf::Joystick::Axis>(j))
+                    && (sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) > static_cast<float>(Input::getJoystickSensitivity())
+                        || sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) < -static_cast<float>(Input::getJoystickSensitivity())))
             {
                 res.push_back(Input(static_cast<sf::Joystick::Axis>(j), i, sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) > static_cast<float>(Input::getJoystickSensitivity())));
             }
@@ -387,9 +389,9 @@ long unsigned int InputManager::getNumberInputPressed()
         for (unsigned int j = 0; j < sf::Joystick::AxisCount; j++)
         {
             if (sf::Joystick::isConnected(i)
-             && sf::Joystick::hasAxis(i, static_cast<sf::Joystick::Axis>(j))
-             && (sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) > static_cast<float>(Input::getJoystickSensitivity())
-              || sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) < -static_cast<float>(Input::getJoystickSensitivity())))
+                    && sf::Joystick::hasAxis(i, static_cast<sf::Joystick::Axis>(j))
+                    && (sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) > static_cast<float>(Input::getJoystickSensitivity())
+                        || sf::Joystick::getAxisPosition(i, static_cast<sf::Joystick::Axis>(j)) < -static_cast<float>(Input::getJoystickSensitivity())))
             {
                 res++;
             }

@@ -27,14 +27,14 @@
 #include <ostream>
 
 #if DEBUG
-    #define debugLog(...) {\
+#define debugLog(...) {\
         char debugLogStr [100];\
         sprintf(debugLogStr, __VA_ARGS__);\
         std::cout << "[" << __FILE__ << "][" << __FUNCTION__ << "][Line " << __LINE__ << "] " <<\
         debugLogStr << std::endl;\
         }
 #else
-    #define debugLog(...)
+#define debugLog(...)
 #endif // DEBUG
 
 constexpr double m_e =        2.71828182845904523536;

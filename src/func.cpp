@@ -63,9 +63,9 @@ std::ostream& operator<<(std::ostream& os, const sf::Transform& right)
 {
     const float* matrix = right.getMatrix();
     return os << "(" << matrix[0] << " " << matrix[4] << " " << matrix[8]  << " " << matrix[12] << ")" << '\n'
-              << "(" << matrix[1] << " " << matrix[5] << " " << matrix[9]  << " " << matrix[13] << ")" << '\n'
-              << "(" << matrix[2] << " " << matrix[6] << " " << matrix[10] << " " << matrix[14] << ")" << '\n'
-              << "(" << matrix[3] << " " << matrix[7] << " " << matrix[11] << " " << matrix[15] << ")";
+           << "(" << matrix[1] << " " << matrix[5] << " " << matrix[9]  << " " << matrix[13] << ")" << '\n'
+           << "(" << matrix[2] << " " << matrix[6] << " " << matrix[10] << " " << matrix[14] << ")" << '\n'
+           << "(" << matrix[3] << " " << matrix[7] << " " << matrix[11] << " " << matrix[15] << ")";
 }
 
 std::ostream& operator<<(std::ostream& os, const sf::Time& right)
@@ -498,41 +498,41 @@ double getCoeff(double coeff, Interp interp, bool limiter)
     }
     switch (interp)
     {
-        case Interp::LIN:
-        {
-            return coeff;
-            break;
-        }
-        case Interp::ACC:
-        {
-            return coeff*coeff;
-            break;
-        }
-        case Interp::BRA:
-        {
-            return (2.0 - coeff)*coeff;
-            break;
-        }
-        case Interp::SIN:
-        {
-            return (std::sin((coeff - 0.5)*m_pi) + 1.0)*0.5;
-            break;
-        }
-        case Interp::SFO:
-        {
-            return 1.0/(1.0 + std::exp(-(2.0*coeff - 1.0)/(coeff*(1.0 - coeff))));
-            break;
-        }
-        case Interp::SIN0:
-        {
-            return (std::sin((coeff - 0.25)*m_2pi) + 1.0)*0.5;
-            break;
-        }
-        default:
-        {
-            return 0.0;
-            break;
-        }
+    case Interp::LIN:
+    {
+        return coeff;
+        break;
+    }
+    case Interp::ACC:
+    {
+        return coeff*coeff;
+        break;
+    }
+    case Interp::BRA:
+    {
+        return (2.0 - coeff)*coeff;
+        break;
+    }
+    case Interp::SIN:
+    {
+        return (std::sin((coeff - 0.5)*m_pi) + 1.0)*0.5;
+        break;
+    }
+    case Interp::SFO:
+    {
+        return 1.0/(1.0 + std::exp(-(2.0*coeff - 1.0)/(coeff*(1.0 - coeff))));
+        break;
+    }
+    case Interp::SIN0:
+    {
+        return (std::sin((coeff - 0.25)*m_2pi) + 1.0)*0.5;
+        break;
+    }
+    default:
+    {
+        return 0.0;
+        break;
+    }
     }
 }
 
@@ -565,7 +565,7 @@ std::string getStringHourVeryPrecise()
     std::string format(12, 0);
     std::chrono::duration<long long int, std::ratio<1, 1000000000> >::rep millis = currentTime.time_since_epoch().count()/1000000 % 1000;
     std::time_t tt = std::chrono::system_clock::to_time_t(currentTime);
-    strftime(&format[0], 12 ,"%H:%M:%S", std::localtime(&tt));
+    strftime(&format[0], 12,"%H:%M:%S", std::localtime(&tt));
     sprintf(&format[0], "%s:%03d", &format[0], static_cast<int>(millis));
     return format;
 }
@@ -576,10 +576,12 @@ std::array<long unsigned int, 4> getHourVeryPrecise()
     std::chrono::duration<long long int, std::ratio<1, 1000000000> >::rep millis = currentTime.time_since_epoch().count()/1000000 % 1000;
     std::time_t tt = std::chrono::system_clock::to_time_t(currentTime);
     std::tm datetime = *std::localtime(&tt);
-    return {{static_cast<long unsigned int>(datetime.tm_hour),
-             static_cast<long unsigned int>(datetime.tm_min),
-             static_cast<long unsigned int>(datetime.tm_sec),
-             static_cast<long unsigned int>(millis)}};
+    return {{
+            static_cast<long unsigned int>(datetime.tm_hour),
+            static_cast<long unsigned int>(datetime.tm_min),
+            static_cast<long unsigned int>(datetime.tm_sec),
+            static_cast<long unsigned int>(millis)
+        }};
 }
 
 std::vector<std::string> split(const std::string& s, char delim)
@@ -697,7 +699,8 @@ long unsigned int power(long unsigned int base, long unsigned int exponent)
 }
 
 sf::String stringTosfString(const std::string& str)
-{   //Can be useful to display accents properly
+{
+    //Can be useful to display accents properly
     std::basic_string<sf::Uint32> utf32str = {};
     sf::Utf8::toUtf32(str.begin(), str.end(), std::back_inserter(utf32str));
     return sf::String(utf32str);
@@ -717,37 +720,37 @@ sf::String evaluateSpecialChars(const sf::String& str)
             sf::Uint32 n = str[i];
             switch (n)
             {
-                case '\\':
-                {
-                    res += n;
-                    break;
-                }
-                case 'n':
-                {
-                    res += '\n';
-                    break;
-                }
-                case 't':
-                {
-                    res += '\t';
-                    break;
-                }
-                case '<':
-                {
-                    res += "\\<";
-                    break;
-                }
-                case '>':
-                {
-                    res += "\\>";
-                    break;
-                }
-                default:
-                {
-                    debugLog("default reached");
-                    std::cerr << "Error: invalid special char found : " << c << n << std::endl;
-                    break;
-                }
+            case '\\':
+            {
+                res += n;
+                break;
+            }
+            case 'n':
+            {
+                res += '\n';
+                break;
+            }
+            case 't':
+            {
+                res += '\t';
+                break;
+            }
+            case '<':
+            {
+                res += "\\<";
+                break;
+            }
+            case '>':
+            {
+                res += "\\>";
+                break;
+            }
+            default:
+            {
+                debugLog("default reached");
+                std::cerr << "Error: invalid special char found : " << c << n << std::endl;
+                break;
+            }
             }
         }
         else
@@ -881,12 +884,18 @@ bool isFloat(const std::u32string& s)
 
 bool isPosInt(const std::string& s)
 {
-    return !s.empty() && std::find_if(s.begin(), s.end(), [](char c) { return !std::isdigit(c); }) == s.end();
+    return !s.empty() && std::find_if(s.begin(), s.end(), [](char c)
+    {
+        return !std::isdigit(c);
+    }) == s.end();
 }
 
 bool isPosInt(const std::u32string& s)
 {
-    return !s.empty() && std::find_if(s.begin(), s.end(), [](char c) { return !std::isdigit(c); }) == s.end();
+    return !s.empty() && std::find_if(s.begin(), s.end(), [](char c)
+    {
+        return !std::isdigit(c);
+    }) == s.end();
 }
 
 long unsigned int str32ToLui(const std::u32string& s)
@@ -955,7 +964,8 @@ std::u32string luiTo32Str(long unsigned int n)
     do
     {
         res = std::u32string(1, (static_cast<char32_t>(n % 10) + U'0')) + res;
-    } while (n / 10);
+    }
+    while (n / 10);
     return res;
 }
 
@@ -972,7 +982,8 @@ std::u32string luiTo32StrHex(long unsigned int n)
         {
             res = std::u32string(1, (static_cast<char32_t>(n % 16) + U'a')) + res;
         }
-    } while (n / 16);
+    }
+    while (n / 16);
     return res;
 }
 
@@ -982,7 +993,8 @@ std::u32string fTo32Str(float n)
     do
     {
         res = std::u32string(1, (static_cast<char32_t>(std::fmod(n, 10.0f)) + U'0')) + res;
-    } while (n / 10.0f > 1.0f);
+    }
+    while (n / 10.0f > 1.0f);
     return res;
 }
 
@@ -1014,108 +1026,108 @@ Quaternion euler2Quaternion(const sf::Vector3<double>& angle, RotSeq rotSeq)
     double s3 = std::sin(angle.z*0.5);
     switch(rotSeq)
     {
-        case RotSeq::zyx:
-        {
-            return Quaternion(c1*c2*c3 + s1*s2*s3,
-                              s1*c2*c3 - c1*s2*s3,
-                              c1*s2*c3 + s1*c2*s3,
-                              c1*c2*s3 - s1*s2*c3);
-            break;
-        }
-        case RotSeq::zyz:
-        {
-            return Quaternion(c1*c2*c3 - s1*c2*s3,
-                              s1*s2*c3 - c1*s2*s3,
-                              c1*s2*c3 + s1*s2*s3,
-                              c1*c2*s3 + s1*c2*c3);
-            break;
-        }
-        case RotSeq::zxy:
-        {
-            return Quaternion(c1*c2*c3 - s1*s2*s3,
-                              c1*s2*c3 - s1*c2*s3,
-                              c1*s2*s3 + s1*c2*c3,
-                              c1*c2*s3 + s1*s2*c3);
-            break;
-        }
-        case RotSeq::zxz:
-        {
-            return Quaternion(c1*c2*c3 - s1*c2*s3,
-                              c1*s2*c3 + s1*s2*s3,
-                              c1*s2*s3 - s1*s2*c3,
-                              c1*c2*s3 + s1*c2*c3);
-            break;
-        }
-        case RotSeq::yxz:
-        {
-            return Quaternion(c1*c2*c3 + s1*s2*s3,
-                              c1*s2*c3 + s1*c2*s3,
-                              c1*c2*s3 - s1*s2*c3,
-                              s1*c2*c3 - c1*s2*s3);
-            break;
-        }
-        case RotSeq::yxy:
-        {
-            return Quaternion(c1*c2*c3 - s1*c2*s3,
-                              c1*s2*c3 + s1*s2*s3,
-                              c1*c2*s3 + s1*c2*c3,
-                              s1*s2*c3 - c1*s2*s3);
-            break;
-        }
-        case RotSeq::yzx:
-        {
-            return Quaternion(c1*c2*c3 - s1*s2*s3,
-                              c1*s2*s3 + s1*c2*c3,
-                              c1*c2*s3 + s1*s2*c3,
-                              c1*s2*c3 - s1*c2*s3);
-            break;
-        }
-        case RotSeq::yzy:
-        {
-            return Quaternion(c1*c2*c3 - s1*c2*s3,
-                              c1*s2*s3 - s1*s2*c3,
-                              c1*c2*s3 + s1*c2*c3,
-                              c1*s2*c3 + s1*s2*s3);
-            break;
-        }
-        case RotSeq::xyz:
-        {
-            return Quaternion(c1*c2*c3 - s1*s2*s3,
-                              c1*c2*s3 + s1*s2*c3,
-                              c1*s2*c3 - s1*c2*s3,
-                              c1*s2*s3 + s1*c2*c3);
-            break;
-        }
-        case RotSeq::xyx:
-        {
-            return Quaternion(c1*c2*c3 - s1*c2*s3,
-                              c1*c2*s3 + s1*c2*c3,
-                              c1*s2*c3 + s1*s2*s3,
-                              c1*s2*s3 - s1*s2*c3);
-            break;
-        }
-        case RotSeq::xzy:
-        {
-            return Quaternion(c1*c2*c3 + s1*s2*s3,
-                              c1*c2*s3 - s1*s2*c3,
-                              s1*c2*c3 - c1*s2*s3,
-                              c1*s2*c3 + s1*c2*s3);
-            break;
-        }
-        case RotSeq::xzx:
-        {
-            return Quaternion(c1*c2*c3 - s1*c2*s3,
-                              c1*c2*s3 + s1*c2*c3,
-                              s1*s2*c3 - c1*s2*s3,
-                              c1*s2*c3 + s1*s2*s3);
-            break;
-        }
-        default:
-        {
-            debugLog("default reached");
-            return Quaternion(0.0, 0.0, 0.0, 0.0);
-            break;
-        }
+    case RotSeq::zyx:
+    {
+        return Quaternion(c1*c2*c3 + s1*s2*s3,
+                          s1*c2*c3 - c1*s2*s3,
+                          c1*s2*c3 + s1*c2*s3,
+                          c1*c2*s3 - s1*s2*c3);
+        break;
+    }
+    case RotSeq::zyz:
+    {
+        return Quaternion(c1*c2*c3 - s1*c2*s3,
+                          s1*s2*c3 - c1*s2*s3,
+                          c1*s2*c3 + s1*s2*s3,
+                          c1*c2*s3 + s1*c2*c3);
+        break;
+    }
+    case RotSeq::zxy:
+    {
+        return Quaternion(c1*c2*c3 - s1*s2*s3,
+                          c1*s2*c3 - s1*c2*s3,
+                          c1*s2*s3 + s1*c2*c3,
+                          c1*c2*s3 + s1*s2*c3);
+        break;
+    }
+    case RotSeq::zxz:
+    {
+        return Quaternion(c1*c2*c3 - s1*c2*s3,
+                          c1*s2*c3 + s1*s2*s3,
+                          c1*s2*s3 - s1*s2*c3,
+                          c1*c2*s3 + s1*c2*c3);
+        break;
+    }
+    case RotSeq::yxz:
+    {
+        return Quaternion(c1*c2*c3 + s1*s2*s3,
+                          c1*s2*c3 + s1*c2*s3,
+                          c1*c2*s3 - s1*s2*c3,
+                          s1*c2*c3 - c1*s2*s3);
+        break;
+    }
+    case RotSeq::yxy:
+    {
+        return Quaternion(c1*c2*c3 - s1*c2*s3,
+                          c1*s2*c3 + s1*s2*s3,
+                          c1*c2*s3 + s1*c2*c3,
+                          s1*s2*c3 - c1*s2*s3);
+        break;
+    }
+    case RotSeq::yzx:
+    {
+        return Quaternion(c1*c2*c3 - s1*s2*s3,
+                          c1*s2*s3 + s1*c2*c3,
+                          c1*c2*s3 + s1*s2*c3,
+                          c1*s2*c3 - s1*c2*s3);
+        break;
+    }
+    case RotSeq::yzy:
+    {
+        return Quaternion(c1*c2*c3 - s1*c2*s3,
+                          c1*s2*s3 - s1*s2*c3,
+                          c1*c2*s3 + s1*c2*c3,
+                          c1*s2*c3 + s1*s2*s3);
+        break;
+    }
+    case RotSeq::xyz:
+    {
+        return Quaternion(c1*c2*c3 - s1*s2*s3,
+                          c1*c2*s3 + s1*s2*c3,
+                          c1*s2*c3 - s1*c2*s3,
+                          c1*s2*s3 + s1*c2*c3);
+        break;
+    }
+    case RotSeq::xyx:
+    {
+        return Quaternion(c1*c2*c3 - s1*c2*s3,
+                          c1*c2*s3 + s1*c2*c3,
+                          c1*s2*c3 + s1*s2*s3,
+                          c1*s2*s3 - s1*s2*c3);
+        break;
+    }
+    case RotSeq::xzy:
+    {
+        return Quaternion(c1*c2*c3 + s1*s2*s3,
+                          c1*c2*s3 - s1*s2*c3,
+                          s1*c2*c3 - c1*s2*s3,
+                          c1*s2*c3 + s1*c2*s3);
+        break;
+    }
+    case RotSeq::xzx:
+    {
+        return Quaternion(c1*c2*c3 - s1*c2*s3,
+                          c1*c2*s3 + s1*c2*c3,
+                          s1*s2*c3 - c1*s2*s3,
+                          c1*s2*c3 + s1*s2*s3);
+        break;
+    }
+    default:
+    {
+        debugLog("default reached");
+        return Quaternion(0.0, 0.0, 0.0, 0.0);
+        break;
+    }
     }
 }
 
@@ -1133,96 +1145,96 @@ sf::Vector3<double> quaternion2Euler(const Quaternion& q, RotSeq rotSeq)
 {
     switch(rotSeq)
     {
-        case RotSeq::zyx: //
-        {
-            return sf::Vector3<double>(std::atan2(2.0*(q.z*q.t + q.x*q.y), q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t),
-                         /* -- ajouté*/-std::asin(2.0*(q.y*q.t - q.x*q.z)),
-                                       std::atan2(2.0*(q.y*q.z + q.x*q.t), q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t));
-            break;
-        }
-        case RotSeq::zyz:
-        {
-            return sf::Vector3<double>(std::atan2(2.0*(q.z*q.t - q.x*q.y), 2.0*(q.y*q.t + q.x*q.z)),
-                                       std::acos(q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t),
-                                       std::atan2(2.0*(q.z*q.t + q.x*q.y), -2.0*(q.y*q.t - q.x*q.z)));
-            break;
-        }
-        case RotSeq::zxy:
-        {
-            return sf::Vector3<double>(std::atan2(-2.0*(q.y*q.t - q.x*q.z), q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t),
-                                       std::asin(2.0*(q.z*q.t + q.x*q.y)),
-                                       std::atan2(-2.0*(q.y*q.z - q.x*q.t), q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t));
-            break;
-        }
-        case RotSeq::zxz:
-        {
-            return sf::Vector3<double>(std::atan2(2.0*(q.y*q.t + q.x*q.z), -2.0*(q.z*q.t - q.x*q.y)),
-                                       std::acos(q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t),
-                                       std::atan2(2.0*(q.y*q.t - q.x*q.z), 2.0*(q.z*q.t + q.x*q.y)));
-            break;
-        }
-        case RotSeq::yxz:
-        {
-            return sf::Vector3<double>(std::atan2(2.0*(q.y*q.z + q.x*q.t), q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t),
-                                       std::asin(-2.0*(q.z*q.t - q.x*q.y)),
-                                       std::atan2(2.0*(q.y*q.t + q.x*q.z), q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t));
-            break;
-        }
-        case RotSeq::yxy:
-        {
-            return sf::Vector3<double>(std::atan2(2.0*(q.y*q.z - q.x*q.t), 2.0*(q.z*q.t + q.x*q.y)),
-                                       std::acos(q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t),
-                                       std::atan2(2.0*(q.y*q.z + q.x*q.t), -2.0*(q.z*q.t - q.x*q.y)));
-            break;
-        }
-        case RotSeq::yzx:
-        {
-            return sf::Vector3<double>(std::atan2(-2.0*(q.z*q.t - q.x*q.y), q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t),
-                                       std::asin(2.0*(q.y*q.z + q.x*q.t)),
-                                       std::atan2(-2.0*(q.y*q.t - q.x*q.z), q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t));
-            break;
-        }
-        case RotSeq::yzy:
-        {
-            return sf::Vector3<double>(std::atan2(2.0*(q.z*q.t + q.x*q.y), -2.0*(q.y*q.z - q.x*q.t)),
-                                       std::acos(q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t),
-                                       std::atan2(2.0*(q.z*q.t - q.x*q.y), 2.0*(q.y*q.z + q.x*q.t)));
-            break;
-        }
-        case RotSeq::xyz: //
-        {
-            return sf::Vector3<double>(std::atan2(-2.0*(q.y*q.z - q.x*q.t), q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t),
-                         /*  - ajouté*/std::asin(-2.0*(q.y*q.t + q.x*q.z)),
-                                       std::atan2(-2.0*(q.z*q.t - q.x*q.y), q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t));
-            break;
-        }
-        case RotSeq::xyx:
-        {
-            return sf::Vector3<double>(std::atan2(2.0*(q.y*q.z + q.x*q.t), -2.0*(q.y*q.t - q.x*q.z)),
-                                       std::acos(q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t),
-                                       std::atan2(2.0*(q.y*q.z - q.x*q.t), 2.0*(q.y*q.t + q.x*q.z)));
-            break;
-        }
-        case RotSeq::xzy:
-        {
-            return sf::Vector3<double>(std::atan2(2.0*(q.y*q.t + q.x*q.z), q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t),
-                                       std::asin(-2.0*(q.y*q.z - q.x*q.t)),
-                                       std::atan2(2.0*(q.z*q.t + q.x*q.y), q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t));
-            break;
-        }
-        case RotSeq::xzx:
-        {
-            return sf::Vector3<double>(std::atan2(2.0*(q.y*q.t - q.x*q.z), 2.0*(q.y*q.z + q.x*q.t)),
-                                       std::acos(q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t),
-                                       std::atan2(2.0*(q.y*q.t + q.x*q.z), -2.0*(q.y*q.z - q.x*q.t)));
-            break;
-        }
-        default:
-        {
-            debugLog("default reached");
-            return sf::Vector3<double>(0.0, 0.0, 0.0);
-            break;
-        }
+    case RotSeq::zyx: //
+    {
+        return sf::Vector3<double>(std::atan2(2.0*(q.z*q.t + q.x*q.y), q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t),
+                                   /* -- ajouté*/-std::asin(2.0*(q.y*q.t - q.x*q.z)),
+                                   std::atan2(2.0*(q.y*q.z + q.x*q.t), q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t));
+        break;
+    }
+    case RotSeq::zyz:
+    {
+        return sf::Vector3<double>(std::atan2(2.0*(q.z*q.t - q.x*q.y), 2.0*(q.y*q.t + q.x*q.z)),
+                                   std::acos(q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t),
+                                   std::atan2(2.0*(q.z*q.t + q.x*q.y), -2.0*(q.y*q.t - q.x*q.z)));
+        break;
+    }
+    case RotSeq::zxy:
+    {
+        return sf::Vector3<double>(std::atan2(-2.0*(q.y*q.t - q.x*q.z), q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t),
+                                   std::asin(2.0*(q.z*q.t + q.x*q.y)),
+                                   std::atan2(-2.0*(q.y*q.z - q.x*q.t), q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t));
+        break;
+    }
+    case RotSeq::zxz:
+    {
+        return sf::Vector3<double>(std::atan2(2.0*(q.y*q.t + q.x*q.z), -2.0*(q.z*q.t - q.x*q.y)),
+                                   std::acos(q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t),
+                                   std::atan2(2.0*(q.y*q.t - q.x*q.z), 2.0*(q.z*q.t + q.x*q.y)));
+        break;
+    }
+    case RotSeq::yxz:
+    {
+        return sf::Vector3<double>(std::atan2(2.0*(q.y*q.z + q.x*q.t), q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t),
+                                   std::asin(-2.0*(q.z*q.t - q.x*q.y)),
+                                   std::atan2(2.0*(q.y*q.t + q.x*q.z), q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t));
+        break;
+    }
+    case RotSeq::yxy:
+    {
+        return sf::Vector3<double>(std::atan2(2.0*(q.y*q.z - q.x*q.t), 2.0*(q.z*q.t + q.x*q.y)),
+                                   std::acos(q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t),
+                                   std::atan2(2.0*(q.y*q.z + q.x*q.t), -2.0*(q.z*q.t - q.x*q.y)));
+        break;
+    }
+    case RotSeq::yzx:
+    {
+        return sf::Vector3<double>(std::atan2(-2.0*(q.z*q.t - q.x*q.y), q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t),
+                                   std::asin(2.0*(q.y*q.z + q.x*q.t)),
+                                   std::atan2(-2.0*(q.y*q.t - q.x*q.z), q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t));
+        break;
+    }
+    case RotSeq::yzy:
+    {
+        return sf::Vector3<double>(std::atan2(2.0*(q.z*q.t + q.x*q.y), -2.0*(q.y*q.z - q.x*q.t)),
+                                   std::acos(q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t),
+                                   std::atan2(2.0*(q.z*q.t - q.x*q.y), 2.0*(q.y*q.z + q.x*q.t)));
+        break;
+    }
+    case RotSeq::xyz: //
+    {
+        return sf::Vector3<double>(std::atan2(-2.0*(q.y*q.z - q.x*q.t), q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t),
+                                   /*  - ajouté*/std::asin(-2.0*(q.y*q.t + q.x*q.z)),
+                                   std::atan2(-2.0*(q.z*q.t - q.x*q.y), q.x*q.x - q.y*q.y - q.z*q.z + q.t*q.t));
+        break;
+    }
+    case RotSeq::xyx:
+    {
+        return sf::Vector3<double>(std::atan2(2.0*(q.y*q.z + q.x*q.t), -2.0*(q.y*q.t - q.x*q.z)),
+                                   std::acos(q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t),
+                                   std::atan2(2.0*(q.y*q.z - q.x*q.t), 2.0*(q.y*q.t + q.x*q.z)));
+        break;
+    }
+    case RotSeq::xzy:
+    {
+        return sf::Vector3<double>(std::atan2(2.0*(q.y*q.t + q.x*q.z), q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t),
+                                   std::asin(-2.0*(q.y*q.z - q.x*q.t)),
+                                   std::atan2(2.0*(q.z*q.t + q.x*q.y), q.x*q.x - q.y*q.y + q.z*q.z - q.t*q.t));
+        break;
+    }
+    case RotSeq::xzx:
+    {
+        return sf::Vector3<double>(std::atan2(2.0*(q.y*q.t - q.x*q.z), 2.0*(q.y*q.z + q.x*q.t)),
+                                   std::acos(q.x*q.x + q.y*q.y - q.z*q.z - q.t*q.t),
+                                   std::atan2(2.0*(q.y*q.t + q.x*q.z), -2.0*(q.y*q.z - q.x*q.t)));
+        break;
+    }
+    default:
+    {
+        debugLog("default reached");
+        return sf::Vector3<double>(0.0, 0.0, 0.0);
+        break;
+    }
     }
 }
 
@@ -1230,20 +1242,24 @@ std::back_insert_iterator<std::u32string> utf8ToUtf32(std::string::const_iterato
 {
     // Some useful precomputed data
     static const std::array<unsigned char, 256> trailing =
-    {{
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5
-    }};
+    {
+        {
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+            2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5
+        }
+    };
     static const std::array<char32_t, 6> offsets =
-    {{
-        0x00000000, 0x00003080, 0x000E2080, 0x03C82080, 0xFA082080, 0x82082080
-    }};
+    {
+        {
+            0x00000000, 0x00003080, 0x000E2080, 0x03C82080, 0xFA082080, 0x82082080
+        }
+    };
     while (be < en)
     {
         char32_t codepoint = 0;
@@ -1253,13 +1269,20 @@ std::back_insert_iterator<std::u32string> utf8ToUtf32(std::string::const_iterato
         {
             switch (trailingBytes)
             {
-                case 5: (codepoint += static_cast<unsigned char>(*be++)) <<= 6;
-                case 4: (codepoint += static_cast<unsigned char>(*be++)) <<= 6;
-                case 3: (codepoint += static_cast<unsigned char>(*be++)) <<= 6;
-                case 2: (codepoint += static_cast<unsigned char>(*be++)) <<= 6;
-                case 1: (codepoint += static_cast<unsigned char>(*be++)) <<= 6;
-                case 0:  codepoint += static_cast<unsigned char>(*be++);
-                default:;
+            case 5:
+                (codepoint += static_cast<unsigned char>(*be++)) <<= 6;
+            case 4:
+                (codepoint += static_cast<unsigned char>(*be++)) <<= 6;
+            case 3:
+                (codepoint += static_cast<unsigned char>(*be++)) <<= 6;
+            case 2:
+                (codepoint += static_cast<unsigned char>(*be++)) <<= 6;
+            case 1:
+                (codepoint += static_cast<unsigned char>(*be++)) <<= 6;
+            case 0:
+                codepoint += static_cast<unsigned char>(*be++);
+            default:
+                ;
             }
             codepoint -= offsets[trailingBytes];
         }
@@ -1277,29 +1300,43 @@ std::back_insert_iterator<std::string> utf32ToUtf8(std::u32string::const_iterato
 {
     // Some useful precomputed data
     static const std::array<unsigned char, 7> firstBytes =
-    {{
-        0x00, 0x00, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC
-    }};
+    {
+        {
+            0x00, 0x00, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC
+        }
+    };
     while (be < en)
     {
         // Valid character
         // Get the number of bytes to write
         char32_t input = *be++;
         std::size_t bytestoWrite = 1;
-        if      (input <  0x80)       bytestoWrite = 1;
-        else if (input <  0x800)      bytestoWrite = 2;
-        else if (input <  0x10000)    bytestoWrite = 3;
-        else if (input <= 0x0010FFFF) bytestoWrite = 4;
+        if      (input <  0x80)
+            bytestoWrite = 1;
+        else if (input <  0x800)
+            bytestoWrite = 2;
+        else if (input <  0x10000)
+            bytestoWrite = 3;
+        else if (input <= 0x0010FFFF)
+            bytestoWrite = 4;
 
         // Extract the bytes to write
         std::array<unsigned char, 4> bytes;
         switch (bytestoWrite)
         {
-            case 4: bytes[3] = static_cast<unsigned char>((input | 0x80) & 0xBF); input >>= 6;
-            case 3: bytes[2] = static_cast<unsigned char>((input | 0x80) & 0xBF); input >>= 6;
-            case 2: bytes[1] = static_cast<unsigned char>((input | 0x80) & 0xBF); input >>= 6;
-            case 1: bytes[0] = static_cast<unsigned char> (input | firstBytes[bytestoWrite]);
-            default:;
+        case 4:
+            bytes[3] = static_cast<unsigned char>((input | 0x80) & 0xBF);
+            input >>= 6;
+        case 3:
+            bytes[2] = static_cast<unsigned char>((input | 0x80) & 0xBF);
+            input >>= 6;
+        case 2:
+            bytes[1] = static_cast<unsigned char>((input | 0x80) & 0xBF);
+            input >>= 6;
+        case 1:
+            bytes[0] = static_cast<unsigned char> (input | firstBytes[bytestoWrite]);
+        default:
+            ;
         }
         // Add them to the output
         output = std::copy(bytes.data(), bytes.data() + bytestoWrite, output);

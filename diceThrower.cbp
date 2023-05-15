@@ -162,25 +162,18 @@
 			<Add directory="C:/Program Files (x86)/SFML/lib" />
 			<Add directory="C:/Program Files (x86)/thor/lib" />
 		</Linker>
-		<Unit filename="include/BlockClosingText.hpp" />
-		<Unit filename="include/BlockInfoText.hpp" />
 		<Unit filename="include/Button.hpp" />
-		<Unit filename="include/ChainText.hpp" />
 		<Unit filename="include/ClickableWidget.hpp" />
 		<Unit filename="include/Component.hpp" />
 		<Unit filename="include/Engine.hpp" />
-		<Unit filename="include/Entity" />
 		<Unit filename="include/Entity.hpp" />
 		<Unit filename="include/Global.hpp" />
-		<Unit filename="include/InfoText.hpp" />
 		<Unit filename="include/Input.hpp" />
 		<Unit filename="include/InputManager.hpp" />
 		<Unit filename="include/IntDistr.hpp" />
-		<Unit filename="include/LeafText.hpp" />
 		<Unit filename="include/LogManager.hpp" />
 		<Unit filename="include/MouseWheel.hpp" />
 		<Unit filename="include/NinePatch.hpp" />
-		<Unit filename="include/NodeText.hpp" />
 		<Unit filename="include/NonCopyable.hpp" />
 		<Unit filename="include/OsManager.hpp" />
 		<Unit filename="include/PathManager.hpp" />
@@ -191,31 +184,31 @@
 		<Unit filename="include/Setting.hpp" />
 		<Unit filename="include/SoundManager.hpp" />
 		<Unit filename="include/System.hpp" />
-		<Unit filename="include/Text.hpp" />
 		<Unit filename="include/TextBox.hpp" />
 		<Unit filename="include/TextureManager.hpp" />
 		<Unit filename="include/Visitor.hpp" />
 		<Unit filename="include/Widget.hpp" />
 		<Unit filename="include/Window.hpp" />
 		<Unit filename="include/func.hpp" />
-		<Unit filename="src/BlockClosingText.cpp" />
-		<Unit filename="src/BlockInfoText.cpp" />
+		<Unit filename="include/text/BlockClosingText.hpp" />
+		<Unit filename="include/text/BlockInfoText.hpp" />
+		<Unit filename="include/text/ChainText.hpp" />
+		<Unit filename="include/text/InfoText.hpp" />
+		<Unit filename="include/text/LeafText.hpp" />
+		<Unit filename="include/text/NodeText.hpp" />
+		<Unit filename="include/text/Text.hpp" />
 		<Unit filename="src/Button.cpp" />
-		<Unit filename="src/ChainText.cpp" />
 		<Unit filename="src/ClickableWidget.cpp" />
 		<Unit filename="src/Component.cpp" />
 		<Unit filename="src/Engine.cpp" />
 		<Unit filename="src/Entity.cpp" />
 		<Unit filename="src/Global.cpp" />
-		<Unit filename="src/InfoText.cpp" />
 		<Unit filename="src/Input.cpp" />
 		<Unit filename="src/InputManager.cpp" />
 		<Unit filename="src/IntDistr.cpp" />
-		<Unit filename="src/LeafText.cpp" />
 		<Unit filename="src/LogManager.cpp" />
 		<Unit filename="src/MouseWheel.cpp" />
 		<Unit filename="src/NinePatch.cpp" />
-		<Unit filename="src/NodeText.cpp" />
 		<Unit filename="src/NonCopyable.cpp" />
 		<Unit filename="src/OsManager.cpp" />
 		<Unit filename="src/PathManager.cpp" />
@@ -226,7 +219,6 @@
 		<Unit filename="src/Setting.cpp" />
 		<Unit filename="src/SoundManager.cpp" />
 		<Unit filename="src/System.cpp" />
-		<Unit filename="src/Text.cpp" />
 		<Unit filename="src/TextBox.cpp" />
 		<Unit filename="src/TextureManager.cpp" />
 		<Unit filename="src/Visitor.cpp" />
@@ -234,6 +226,13 @@
 		<Unit filename="src/Window.cpp" />
 		<Unit filename="src/func.cpp" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/text/BlockClosingText.cpp" />
+		<Unit filename="src/text/BlockInfoText.cpp" />
+		<Unit filename="src/text/ChainText.cpp" />
+		<Unit filename="src/text/InfoText.cpp" />
+		<Unit filename="src/text/LeafText.cpp" />
+		<Unit filename="src/text/NodeText.cpp" />
+		<Unit filename="src/text/Text.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

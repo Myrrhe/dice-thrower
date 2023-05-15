@@ -13,10 +13,17 @@
 #include <iostream>
 #include <istream>
 
-class A{
+class A
+{
 public:
-    int value() { return 1; }
-    int value() const { return 2; }
+    int value()
+    {
+        return 1;
+    }
+    int value() const
+    {
+        return 2;
+    }
 };
 
 int main(int /*argc*/, char** argv, char** /*options*/)

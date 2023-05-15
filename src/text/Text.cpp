@@ -22,7 +22,7 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "Text.hpp"
+#include "text/Text.hpp"
 #include "func.hpp"
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/Texture.hpp>
@@ -91,27 +91,27 @@ void Text::addBackPart(std::vector<sf::Vertex>& vertices, float xInit, float xFi
 }
 
 Text::Text() : sf::Drawable(), sf::Transformable(),
-m_chainText(),
+    m_chainText(),
 //m_string             (),
-m_infoText(),
-m_fontsSizes({}),
-m_widthWrap(-1.0f),
-/*
-m_font               (nullptr),
-m_characterSize      (30),
-m_letterSpacingFactor(1.f),
-m_lineSpacingFactor  (1.f),
-m_style              (InfoText::Style::Regular),
-m_fillColor          (255, 255, 255),
-m_outlineColor       (0, 0, 0),
-m_outlineThickness   (0),
-*/
-m_vertices           (),
-m_outlineVertices    (),
-m_backVertices       (),
-m_bounds             (),
-m_geometryNeedUpdate (false),
-m_fontTextureId      (0)
+    m_infoText(),
+    m_fontsSizes( {}),
+              m_widthWrap(-1.0f),
+              /*
+              m_font               (nullptr),
+              m_characterSize      (30),
+              m_letterSpacingFactor(1.f),
+              m_lineSpacingFactor  (1.f),
+              m_style              (InfoText::Style::Regular),
+              m_fillColor          (255, 255, 255),
+              m_outlineColor       (0, 0, 0),
+              m_outlineThickness   (0),
+              */
+              m_vertices           (),
+              m_outlineVertices    (),
+              m_backVertices       (),
+              m_bounds             (),
+              m_geometryNeedUpdate (false),
+              m_fontTextureId      (0)
 {
 
 }
@@ -146,10 +146,10 @@ m_fontTextureId      (0)
 }
 */
 Text::Text(const std::vector<const ChainText*>& chainText, const sf::Font& font, unsigned int characterSize) : sf::Drawable(), sf::Transformable(),
-m_chainText(chainText),
+    m_chainText(chainText),
 //m_string             (string),
-m_infoText(&font, characterSize),
-m_fontsSizes({}),
+    m_infoText(&font, characterSize),
+    m_fontsSizes( {}),
 m_widthWrap(-1.0f),
 /*
 m_font               (&font),
@@ -172,27 +172,27 @@ m_fontTextureId      (0)
 }
 
 Text::Text(const Text& right) : sf::Drawable(right), sf::Transformable(right),
-m_chainText(right.m_chainText),
+    m_chainText(right.m_chainText),
 //m_string             (right.m_string),
-m_infoText(right.m_infoText),
-m_fontsSizes(right.m_fontsSizes),
-m_widthWrap(right.m_widthWrap),
-/*
-m_font               (right.m_font),
-m_characterSize      (right.m_characterSize),
-m_letterSpacingFactor(right.m_letterSpacingFactor),
-m_lineSpacingFactor  (right.m_lineSpacingFactor),
-m_style              (right.m_style),
-m_fillColor          (right.m_fillColor),
-m_outlineColor       (right.m_outlineColor),
-m_outlineThickness   (right.m_outlineThickness),
-*/
-m_vertices           (right.m_vertices),
-m_outlineVertices    (right.m_outlineVertices),
-m_backVertices       (right.m_backVertices),
-m_bounds             (right.m_bounds),
-m_geometryNeedUpdate (right.m_geometryNeedUpdate),
-m_fontTextureId      (right.m_fontTextureId)
+    m_infoText(right.m_infoText),
+    m_fontsSizes(right.m_fontsSizes),
+    m_widthWrap(right.m_widthWrap),
+    /*
+    m_font               (right.m_font),
+    m_characterSize      (right.m_characterSize),
+    m_letterSpacingFactor(right.m_letterSpacingFactor),
+    m_lineSpacingFactor  (right.m_lineSpacingFactor),
+    m_style              (right.m_style),
+    m_fillColor          (right.m_fillColor),
+    m_outlineColor       (right.m_outlineColor),
+    m_outlineThickness   (right.m_outlineThickness),
+    */
+    m_vertices           (right.m_vertices),
+    m_outlineVertices    (right.m_outlineVertices),
+    m_backVertices       (right.m_backVertices),
+    m_bounds             (right.m_bounds),
+    m_geometryNeedUpdate (right.m_geometryNeedUpdate),
+    m_fontTextureId      (right.m_fontTextureId)
 {
 
 }
@@ -266,7 +266,7 @@ void Text::setCharacterSize(unsigned int size)
 void Text::setLetterSpacing(bool spacingFixed, float spacing)
 {
     if (spacingFixed != std::get<0>(m_infoText.getInfo<InfoText::Info::LETTER_SPACING>())
-     || std::abs(std::get<1>(m_infoText.getInfo<InfoText::Info::LETTER_SPACING>()) - spacing) > m_epsilon_f)
+            || std::abs(std::get<1>(m_infoText.getInfo<InfoText::Info::LETTER_SPACING>()) - spacing) > m_epsilon_f)
     {
         m_infoText.setInfo<InfoText::Info::LETTER_SPACING>({spacingFixed, spacing});
     }
@@ -545,10 +545,18 @@ sf::Vector2<float> Text::findLocalCharacterPos(std::size_t index) const
         // Handle special characters
         switch (curChar)
         {
-            case U' ':  position.x += curWhitespaceWidth;             continue;
-            case U'\t': position.x += curWhitespaceWidth * 4;         continue;
-            case U'\n': position.y += curLineSpacing; position.x = 0; continue;
-            default: break;
+        case U' ':
+            position.x += curWhitespaceWidth;
+            continue;
+        case U'\t':
+            position.x += curWhitespaceWidth * 4;
+            continue;
+        case U'\n':
+            position.y += curLineSpacing;
+            position.x = 0;
+            continue;
+        default:
+            break;
         }
 
         // For regular characters, add the advance offset of the glyph
@@ -639,10 +647,18 @@ long unsigned int Text::findIndexCharacter(const sf::Vector2<float>& pos)
         // Handle special characters
         switch (curChar)
         {
-            case U' ':  position.x += curWhitespaceWidth;             continue;
-            case U'\t': position.x += curWhitespaceWidth * 4;         continue;
-            case U'\n': position.y += curLineSpacing; position.x = 0; continue;
-            default: break;
+        case U' ':
+            position.x += curWhitespaceWidth;
+            continue;
+        case U'\t':
+            position.x += curWhitespaceWidth * 4;
+            continue;
+        case U'\n':
+            position.y += curLineSpacing;
+            position.x = 0;
+            continue;
+        default:
+            break;
         }
 
         // For regular characters, add the advance offset of the glyph
@@ -860,25 +876,25 @@ void Text::ensureGeometryUpdate() const
                 prevY = 0.0f;
             }
             if (curInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::Underlined
-           && !(prevInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::Underlined))
+                    && !(prevInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::Underlined))
             {
                 curUndelineVertFill.clear();
                 curUndelineVertOutline.clear();
             }
             else if (!(curInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::Underlined)
-                    && prevInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::Underlined)
+                     && prevInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::Underlined)
             {
                 m_vertices[indexArrayVert].insert(m_vertices[indexArrayVert].end(), curUndelineVertFill.begin(), curUndelineVertFill.end());
                 m_outlineVertices[indexArrayVert].insert(m_outlineVertices[indexArrayVert].end(), curUndelineVertOutline.begin(), curUndelineVertOutline.end());
             }
             if (curInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::StrikeThrough
-           && !(prevInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::StrikeThrough))
+                    && !(prevInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::StrikeThrough))
             {
                 curStrikeThroughVertFill.clear();
                 curStrikeThroughVertOutline.clear();
             }
             else if (!(curInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::StrikeThrough)
-                    && prevInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::StrikeThrough)
+                     && prevInfo.getInfoText().getInfo<InfoText::Info::STYLE>() & InfoText::Style::StrikeThrough)
             {
                 m_vertices[indexArrayVert].insert(m_vertices[indexArrayVert].end(), curStrikeThroughVertFill.begin(), curStrikeThroughVertFill.end());
                 m_outlineVertices[indexArrayVert].insert(m_outlineVertices[indexArrayVert].end(), curStrikeThroughVertOutline.begin(), curStrikeThroughVertOutline.end());
@@ -968,83 +984,32 @@ void Text::ensureGeometryUpdate() const
 
             switch (curChar)
             {
-                case U' ':
+            case U' ':
+            {
+                addBackPart(m_backVertices.back(), prevX, x, y, y + static_cast<float>(curInfo.getInfoText().getInfo<InfoText::Info::CHAR_SIZE>()),
+                            curInfo.getInfoText().getInfo<InfoText::Info::BACK_COLOR>());
+                if (curUnderlined)
                 {
-                    addBackPart(m_backVertices.back(), prevX, x, y, y + static_cast<float>(curInfo.getInfoText().getInfo<InfoText::Info::CHAR_SIZE>()),
-                                curInfo.getInfoText().getInfo<InfoText::Info::BACK_COLOR>());
-                    if (curUnderlined)
+                    addLinePart(curUndelineVertFill, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::FILL_COLOR>(), curUnderlineOffset,
+                                curUnderlineThickness);
+                    if (std::abs(curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>()) > m_epsilon_f)
                     {
-                        addLinePart(curUndelineVertFill, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::FILL_COLOR>(), curUnderlineOffset,
-                                  curUnderlineThickness);
-                        if (std::abs(curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>()) > m_epsilon_f)
-                        {
-                            addLinePart(curUndelineVertOutline, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::OUTLINE_COLOR>(), curUnderlineOffset,
-                                                  curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
-                        }
+                        addLinePart(curUndelineVertOutline, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::OUTLINE_COLOR>(), curUnderlineOffset,
+                                    curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
                     }
-                    if (curStrikeThrough)
-                    {
-                        addLinePart(curStrikeThroughVertFill, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::FILL_COLOR>(), curStrikeThroughOffset,
-                                              curUnderlineThickness);
-                        if (std::abs(curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>()) > m_epsilon_f)
-                        {
-                            addLinePart(curStrikeThroughVertOutline, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::OUTLINE_COLOR>(), curStrikeThroughOffset,
-                                                  curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
-                        }
-                    }
-                    x += curWhitespaceWidth;
-                    if (m_widthWrap >= 0.0f && m_widthWrap < x)
-                    {
-                        prevY = y;
-                        y += curLineSpacing;
-                        if (curUnderlined)
-                        {
-                            m_vertices[indexArrayVert].insert(m_vertices[indexArrayVert].end(), curUndelineVertFill.begin(), curUndelineVertFill.end());
-                            m_outlineVertices[indexArrayVert].insert(m_outlineVertices[indexArrayVert].end(), curUndelineVertOutline.begin(), curUndelineVertOutline.end());
-                            curUndelineVertFill.clear();
-                            curUndelineVertOutline.clear();
-                        }
-                        if (curStrikeThrough)
-                        {
-                            m_vertices[indexArrayVert].insert(m_vertices[indexArrayVert].end(), curStrikeThroughVertFill.begin(), curStrikeThroughVertFill.end());
-                            m_outlineVertices[indexArrayVert].insert(m_outlineVertices[indexArrayVert].end(), curStrikeThroughVertOutline.begin(), curStrikeThroughVertOutline.end());
-                            curStrikeThroughVertFill.clear();
-                            curStrikeThroughVertOutline.clear();
-                        }
-                        x = 0;
-                    }
-                    prevX = x;
-                    break;
                 }
-                case U'\t':
+                if (curStrikeThrough)
                 {
-                    addBackPart(m_backVertices.back(), prevX, x, y, y + static_cast<float>(curInfo.getInfoText().getInfo<InfoText::Info::CHAR_SIZE>()),
-                                curInfo.getInfoText().getInfo<InfoText::Info::BACK_COLOR>());
-                    if (curUnderlined)
+                    addLinePart(curStrikeThroughVertFill, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::FILL_COLOR>(), curStrikeThroughOffset,
+                                curUnderlineThickness);
+                    if (std::abs(curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>()) > m_epsilon_f)
                     {
-                        addLinePart(curUndelineVertFill, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::FILL_COLOR>(), curUnderlineOffset,
-                                  curUnderlineThickness);
-                        if (std::abs(curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>()) > m_epsilon_f)
-                        {
-                            addLinePart(curUndelineVertOutline, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::OUTLINE_COLOR>(), curUnderlineOffset,
-                                                  curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
-                        }
+                        addLinePart(curStrikeThroughVertOutline, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::OUTLINE_COLOR>(), curStrikeThroughOffset,
+                                    curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
                     }
-                    if (curStrikeThrough)
-                    {
-                        addLinePart(curStrikeThroughVertFill, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::FILL_COLOR>(), curStrikeThroughOffset,
-                                              curUnderlineThickness);
-                        if (std::abs(curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>()) > m_epsilon_f)
-                        {
-                            addLinePart(curStrikeThroughVertOutline, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::OUTLINE_COLOR>(), curStrikeThroughOffset,
-                                                  curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
-                        }
-                    }
-                    x += curWhitespaceWidth * 4;
-                    prevX = x;
-                    break;
                 }
-                case U'\n':
+                x += curWhitespaceWidth;
+                if (m_widthWrap >= 0.0f && m_widthWrap < x)
                 {
                     prevY = y;
                     y += curLineSpacing;
@@ -1063,13 +1028,64 @@ void Text::ensureGeometryUpdate() const
                         curStrikeThroughVertOutline.clear();
                     }
                     x = 0;
-                    prevX = 0;
-                    break;
                 }
-                default:
+                prevX = x;
+                break;
+            }
+            case U'\t':
+            {
+                addBackPart(m_backVertices.back(), prevX, x, y, y + static_cast<float>(curInfo.getInfoText().getInfo<InfoText::Info::CHAR_SIZE>()),
+                            curInfo.getInfoText().getInfo<InfoText::Info::BACK_COLOR>());
+                if (curUnderlined)
                 {
-                    break;
+                    addLinePart(curUndelineVertFill, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::FILL_COLOR>(), curUnderlineOffset,
+                                curUnderlineThickness);
+                    if (std::abs(curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>()) > m_epsilon_f)
+                    {
+                        addLinePart(curUndelineVertOutline, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::OUTLINE_COLOR>(), curUnderlineOffset,
+                                    curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
+                    }
                 }
+                if (curStrikeThrough)
+                {
+                    addLinePart(curStrikeThroughVertFill, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::FILL_COLOR>(), curStrikeThroughOffset,
+                                curUnderlineThickness);
+                    if (std::abs(curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>()) > m_epsilon_f)
+                    {
+                        addLinePart(curStrikeThroughVertOutline, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::OUTLINE_COLOR>(), curStrikeThroughOffset,
+                                    curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
+                    }
+                }
+                x += curWhitespaceWidth * 4;
+                prevX = x;
+                break;
+            }
+            case U'\n':
+            {
+                prevY = y;
+                y += curLineSpacing;
+                if (curUnderlined)
+                {
+                    m_vertices[indexArrayVert].insert(m_vertices[indexArrayVert].end(), curUndelineVertFill.begin(), curUndelineVertFill.end());
+                    m_outlineVertices[indexArrayVert].insert(m_outlineVertices[indexArrayVert].end(), curUndelineVertOutline.begin(), curUndelineVertOutline.end());
+                    curUndelineVertFill.clear();
+                    curUndelineVertOutline.clear();
+                }
+                if (curStrikeThrough)
+                {
+                    m_vertices[indexArrayVert].insert(m_vertices[indexArrayVert].end(), curStrikeThroughVertFill.begin(), curStrikeThroughVertFill.end());
+                    m_outlineVertices[indexArrayVert].insert(m_outlineVertices[indexArrayVert].end(), curStrikeThroughVertOutline.begin(), curStrikeThroughVertOutline.end());
+                    curStrikeThroughVertFill.clear();
+                    curStrikeThroughVertOutline.clear();
+                }
+                x = 0;
+                prevX = 0;
+                break;
+            }
+            default:
+            {
+                break;
+            }
             }
 
             // Update the current bounds (max coordinates)
@@ -1084,7 +1100,7 @@ void Text::ensureGeometryUpdate() const
         if (std::abs(curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>()) > m_epsilon_f)
         {
             const sf::Glyph& glyph = curInfo.getInfoText().getInfo<InfoText::Info::FONT>()->getGlyph(curChar, curInfo.getInfoText().getInfo<InfoText::Info::CHAR_SIZE>(), curBold,
-                                                                                          curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
+                                     curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
 
             float left   = glyph.bounds.left;
             float top    = glyph.bounds.top;
@@ -1093,7 +1109,7 @@ void Text::ensureGeometryUpdate() const
 
             // Add the outline glyph to the vertices
             addGlyphQuad(m_outlineVertices[indexArrayVert], sf::Vector2<float>(x, y), curInfo.getInfoText().getInfo<InfoText::Info::OUTLINE_COLOR>(), glyph, curItalicShear,
-                                   curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
+                         curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
 
             // Update the current bounds with the outlined glyph bounds
             minX = std::min(minX, x + left   - curItalicShear * bottom - curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
@@ -1139,21 +1155,21 @@ void Text::ensureGeometryUpdate() const
         if (curUnderlined)
         {
             addLinePart(curUndelineVertFill, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::FILL_COLOR>(), curUnderlineOffset,
-                                  curUnderlineThickness);
+                        curUnderlineThickness);
             if (std::abs(curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>()) > m_epsilon_f)
             {
                 addLinePart(curUndelineVertOutline, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::OUTLINE_COLOR>(), curUnderlineOffset,
-                                      curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
+                            curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
             }
         }
         if (curStrikeThrough)
         {
             addLinePart(curStrikeThroughVertFill, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::FILL_COLOR>(), curStrikeThroughOffset,
-                                  curUnderlineThickness);
+                        curUnderlineThickness);
             if (std::abs(curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>()) > m_epsilon_f)
             {
                 addLinePart(curStrikeThroughVertOutline, prevX, x, y, curInfo.getInfoText().getInfo<InfoText::Info::OUTLINE_COLOR>(), curStrikeThroughOffset,
-                                      curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
+                            curUnderlineThickness, curInfo.getInfoText().getInfo<InfoText::Info::THICKNESS>());
             }
         }
 

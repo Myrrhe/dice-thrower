@@ -21,28 +21,28 @@
 #include <istream>
 #include <iostream>
 #ifdef __linux__
-    #include <sys/resource.h>
-    #include <sys/stat.h>
-    #include <unistd.h>
-    #include <ctime>
+#include <sys/resource.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <ctime>
 #elif _WIN32
-    #include <direct.h>
-    #include <Windows.h>
-    #include <winnt.h>
+#include <direct.h>
+#include <Windows.h>
+#include <winnt.h>
 #elif _OSX
 
 #endif // __linux__
 
 #ifdef __linux__
-    const char OsManager::SlashC = '/';
-    const std::string OsManager::StrIcon = "iconl64.png";
-    const unsigned int OsManager::WidthIcon = 64;
-    const unsigned int OsManager::HeightIcon = 64;
+const char OsManager::SlashC = '/';
+const std::string OsManager::StrIcon = "iconl64.png";
+const unsigned int OsManager::WidthIcon = 64;
+const unsigned int OsManager::HeightIcon = 64;
 #elif _WIN32
-    const char OsManager::SlashC = '\\';
-    const std::string OsManager::StrIcon = "iconw128.png";
-    const unsigned int OsManager::WidthIcon = 128;
-    const unsigned int OsManager::HeightIcon = 128;
+const char OsManager::SlashC = '\\';
+const std::string OsManager::StrIcon = "iconw128.png";
+const unsigned int OsManager::WidthIcon = 128;
+const unsigned int OsManager::HeightIcon = 128;
 #elif _OSX
 
 #endif // __linux__

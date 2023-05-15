@@ -51,7 +51,7 @@ void ScreenCapturer::initialize()
     renderStatesFlash.texture = nullptr;
     renderStatesFlash.shader = nullptr;
     renderStatesFlash.blendMode = sf::BlendMode(sf::BlendMode::Factor::SrcAlpha, sf::BlendMode::Factor::One, sf::BlendMode::Equation::Add,
-                                                sf::BlendMode::Factor::One, sf::BlendMode::Factor::One, sf::BlendMode::Equation::Add);
+                                  sf::BlendMode::Factor::One, sf::BlendMode::Factor::One, sf::BlendMode::Equation::Add);
     for (long unsigned int i = 0; i < 4; i++)
     {
         verticesFlash[i].color = sf::Color(255, 255, 255, 0);

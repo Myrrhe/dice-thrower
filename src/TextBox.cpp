@@ -6,51 +6,51 @@
 #include <istream>
 
 TextBox::TextBox() : ClickableWidget(),
-textureRect(),
-ninePatch(),
-textureCursor(nullptr),
-textureRectCursor(),
-verticesCursor(),
-positionCursor(),
-positionCursorOffset(),
-posMaxCursor(),
-positionText(),
-positionTextOffset(),
-chainText(),
-text(),
-indexCursor(0),
-lastAction(Action::ADD_CHAR),
-selIni(0),
-selEnd(0),
-selMin(0),
-selMax(0),
-sizeBorderSlide(1.0f),
-frameCount(0)
+    textureRect(),
+    ninePatch(),
+    textureCursor(nullptr),
+    textureRectCursor(),
+    verticesCursor(),
+    positionCursor(),
+    positionCursorOffset(),
+    posMaxCursor(),
+    positionText(),
+    positionTextOffset(),
+    chainText(),
+    text(),
+    indexCursor(0),
+    lastAction(Action::ADD_CHAR),
+    selIni(0),
+    selEnd(0),
+    selMin(0),
+    selMax(0),
+    sizeBorderSlide(1.0f),
+    frameCount(0)
 {
     text.setChainText({&chainText});
 }
 
 TextBox::TextBox(float newWidth, float newHeight, const sf::Texture* newTexture, const sf::Window* newWindow) : ClickableWidget(),
-textureRect(sf::Rect<int>()),
-ninePatch(),
-textureCursor(nullptr),
-textureRectCursor(),
-verticesCursor(),
-positionCursor(),
-positionCursorOffset(),
-posMaxCursor(),
-positionText(),
-positionTextOffset(),
-chainText(),
-text(),
-indexCursor(0),
-lastAction(Action::ADD_CHAR),
-selIni(0),
-selEnd(0),
-selMin(0),
-selMax(0),
-sizeBorderSlide(1.0f),
-frameCount(0)
+    textureRect(sf::Rect<int>()),
+    ninePatch(),
+    textureCursor(nullptr),
+    textureRectCursor(),
+    verticesCursor(),
+    positionCursor(),
+    positionCursorOffset(),
+    posMaxCursor(),
+    positionText(),
+    positionTextOffset(),
+    chainText(),
+    text(),
+    indexCursor(0),
+    lastAction(Action::ADD_CHAR),
+    selIni(0),
+    selEnd(0),
+    selMin(0),
+    selMax(0),
+    sizeBorderSlide(1.0f),
+    frameCount(0)
 {
     setSize(newWidth, newHeight);
     setTexture(*newTexture);
@@ -64,26 +64,26 @@ TextBox::~TextBox()
 }
 
 TextBox::TextBox(const TextBox& right) : ClickableWidget(right),
-textureRect(right.textureRect),
-ninePatch(right.ninePatch),
-textureCursor(right.textureCursor),
-textureRectCursor(right.textureRectCursor),
-verticesCursor(right.verticesCursor),
-positionCursor(right.positionCursor),
-positionCursorOffset(right.positionCursorOffset),
-posMaxCursor(right.posMaxCursor),
-positionText(right.positionText),
-positionTextOffset(right.positionTextOffset),
-chainText(right.chainText),
-text(right.text),
-indexCursor(right.indexCursor),
-lastAction(right.lastAction),
-selIni(right.selIni),
-selEnd(right.selEnd),
-selMin(right.selMin),
-selMax(right.selMax),
-sizeBorderSlide(right.sizeBorderSlide),
-frameCount(right.frameCount)
+    textureRect(right.textureRect),
+    ninePatch(right.ninePatch),
+    textureCursor(right.textureCursor),
+    textureRectCursor(right.textureRectCursor),
+    verticesCursor(right.verticesCursor),
+    positionCursor(right.positionCursor),
+    positionCursorOffset(right.positionCursorOffset),
+    posMaxCursor(right.posMaxCursor),
+    positionText(right.positionText),
+    positionTextOffset(right.positionTextOffset),
+    chainText(right.chainText),
+    text(right.text),
+    indexCursor(right.indexCursor),
+    lastAction(right.lastAction),
+    selIni(right.selIni),
+    selEnd(right.selEnd),
+    selMin(right.selMin),
+    selMax(right.selMax),
+    sizeBorderSlide(right.sizeBorderSlide),
+    frameCount(right.frameCount)
 {
 
 }
@@ -161,7 +161,7 @@ void TextBox::update()
                 lastAction = Action::ADD_CHAR;
             }
             std::cout << str32Tostr8(text.getChainText().back()->toStr()) << std::endl;
-            text.setGeomtryNeedUpdate();
+            text.setGeometryNeedUpdate();
             setCursorPosition();
         }
         if (Window::isKeyPressed())
@@ -171,7 +171,7 @@ void TextBox::update()
                 if (indexCursor < chainText.getNbChar())
                 {
                     chainText.popChar(indexCursor);
-                    text.setGeomtryNeedUpdate();
+                    text.setGeometryNeedUpdate();
                     setCursorPosition();
                     lastAction = Action::DEL_RIGHT;
                 }
@@ -421,7 +421,7 @@ void TextBox::setCursorPosition()
         }
         else
         {
-             positionCursor = sf::Vector2<float>(text.findCharacterPos(indexCursor).x, 0.0f);
+            positionCursor = sf::Vector2<float>(text.findCharacterPos(indexCursor).x, 0.0f);
         }
         text.setPosition(positionText + positionTextOffset);
     }
@@ -498,14 +498,46 @@ void TextBox::updateTexCoords()
     int posTex;
     switch (state)
     {
-        case State::MOUSE_NOT_ON_WIDGET:         {posTex = focused ? 2 : 0; break;}
-        case State::MOUSE_CLICKED_NOT_ON_WIDGET: {posTex = focused ? 2 : 0; break;}
-        case State::MOUSE_CLICKED_OUT_ON_WIDGET: {posTex = focused ? 2 : 1; break;}
-        case State::MOUSE_ON_WIDGET:             {posTex = focused ? 2 : 1; break;}
-        case State::MOUSE_CLICKED:               {posTex = 2; break;}
-        case State::MOUSE_CLICKED_OUT_OF_WIDGET: {posTex = 2; break;}
-        case State::CLICKED:                     {posTex = 2; break;}
-        default:                                 {posTex = 0; break;}
+    case State::MOUSE_NOT_ON_WIDGET:
+    {
+        posTex = focused ? 2 : 0;
+        break;
+    }
+    case State::MOUSE_CLICKED_NOT_ON_WIDGET:
+    {
+        posTex = focused ? 2 : 0;
+        break;
+    }
+    case State::MOUSE_CLICKED_OUT_ON_WIDGET:
+    {
+        posTex = focused ? 2 : 1;
+        break;
+    }
+    case State::MOUSE_ON_WIDGET:
+    {
+        posTex = focused ? 2 : 1;
+        break;
+    }
+    case State::MOUSE_CLICKED:
+    {
+        posTex = 2;
+        break;
+    }
+    case State::MOUSE_CLICKED_OUT_OF_WIDGET:
+    {
+        posTex = 2;
+        break;
+    }
+    case State::CLICKED:
+    {
+        posTex = 2;
+        break;
+    }
+    default:
+    {
+        posTex = 0;
+        break;
+    }
     }
     ninePatch.setTextureRect(textureRect + posTex*sf::Vector2<int>(textureRect.width, 0));
 }

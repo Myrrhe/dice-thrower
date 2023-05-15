@@ -22,25 +22,25 @@
 #include <cmath>
 
 RoundedRectangleShape::RoundedRectangleShape() :
-m_size(),
-m_radius(),
-m_cornerPointCount()
+    m_size(),
+    m_radius(),
+    m_cornerPointCount()
 {
 
 }
 
 RoundedRectangleShape::RoundedRectangleShape(const sf::Vector2<float>& size, float radius, unsigned int cornerPointCount) :
-m_size(size),
-m_radius(radius),
-m_cornerPointCount(cornerPointCount)
+    m_size(size),
+    m_radius(radius),
+    m_cornerPointCount(cornerPointCount)
 {
     update();
 }
 
 RoundedRectangleShape::RoundedRectangleShape(const RoundedRectangleShape& right) :
-m_size(right.m_size),
-m_radius(right.m_radius),
-m_cornerPointCount(right.m_cornerPointCount)
+    m_size(right.m_size),
+    m_radius(right.m_radius),
+    m_cornerPointCount(right.m_cornerPointCount)
 {
 
 }
@@ -108,38 +108,38 @@ sf::Vector2<float> RoundedRectangleShape::getPoint(std::size_t index) const
     std::size_t centerIndex = index/m_cornerPointCount;
     switch(centerIndex)
     {
-        case 0:
-        {
-            center.x = m_size.x - m_radius;
-            center.y = m_radius;
-            break;
-        }
-        case 1:
-        {
-            center.x = m_radius;
-            center.y = m_radius;
-            break;
-        }
-        case 2:
-        {
-            center.x = m_radius;
-            center.y = m_size.y - m_radius;
-            break;
-        }
-        case 3:
-        {
-            center.x = m_size.x - m_radius;
-            center.y = m_size.y - m_radius;
-            break;
-        }
-        default:
-        {
-            debugLog("default reached");
-            center.x = 0.0f;
-            center.y = 0.0f;
-            break;
-        }
+    case 0:
+    {
+        center.x = m_size.x - m_radius;
+        center.y = m_radius;
+        break;
+    }
+    case 1:
+    {
+        center.x = m_radius;
+        center.y = m_radius;
+        break;
+    }
+    case 2:
+    {
+        center.x = m_radius;
+        center.y = m_size.y - m_radius;
+        break;
+    }
+    case 3:
+    {
+        center.x = m_size.x - m_radius;
+        center.y = m_size.y - m_radius;
+        break;
+    }
+    default:
+    {
+        debugLog("default reached");
+        center.x = 0.0f;
+        center.y = 0.0f;
+        break;
+    }
     }
     return sf::Vector2<float>(m_radius*std::cos(deltaAngle*static_cast<float>(index - centerIndex)*m_pi_f/180.0f) + center.x,
-                             -m_radius*std::sin(deltaAngle*static_cast<float>(index - centerIndex)*m_pi_f/180.0f) + center.y);
+                              -m_radius*std::sin(deltaAngle*static_cast<float>(index - centerIndex)*m_pi_f/180.0f) + center.y);
 }

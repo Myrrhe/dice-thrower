@@ -27,55 +27,55 @@ class Input final
 {
 public:
 
-	enum class InputFl : long unsigned int
-	{
-	    LEFT  = 1,
-	    RIGHT = 1 << 1,
-	    UP    = 1 << 2,
-	    DOWN  = 1 << 3,
-	    SLOW  = 1 << 4,
-	    SHOT  = 1 << 5,
-	    BOMB  = 1 << 6,
-	    NEXT  = 1 << 7,
-	    PREV  = 1 << 8,
-	    SKIP  = 1 << 9
-	};
+    enum class InputFl : long unsigned int
+    {
+        LEFT  = 1,
+        RIGHT = 1 << 1,
+        UP    = 1 << 2,
+        DOWN  = 1 << 3,
+        SLOW  = 1 << 4,
+        SHOT  = 1 << 5,
+        BOMB  = 1 << 6,
+        NEXT  = 1 << 7,
+        PREV  = 1 << 8,
+        SKIP  = 1 << 9
+    };
 
-	enum class TypeInput : long unsigned int
-	{
-	    KEYBOARD,
-	    MOUSE,
-	    JOYSTICK_AXIS,
-	    JOYSTICK,
-	    ERROR_TYPE_INPUT
-	};
+    enum class TypeInput : long unsigned int
+    {
+        KEYBOARD,
+        MOUSE,
+        JOYSTICK_AXIS,
+        JOYSTICK,
+        ERROR_TYPE_INPUT
+    };
 
-Input();
-~Input();
-explicit Input(const sf::Keyboard::Key& newKey);
-explicit Input(const sf::Mouse::Button& newButton);
-explicit Input(const sf::Joystick::Axis& newAxis,
-	           unsigned int newIdJoystick = 0u,
-	           bool newSignAxis = true);
-explicit Input(unsigned int newButtonJoystick, unsigned int newIdJoystick = 0u);
-explicit Input(const std::string& str);
-Input(const Input& input) noexcept;
-Input& operator=(const Input& input);
-std::string to_string() const;
-bool operator==(const Input& input) const;
-bool operator!=(const Input& input) const;
-bool isPressed() const;
-TypeInput getTypeInput() const;
-sf::Keyboard::Key getKey() const;
-sf::Mouse::Button getButton() const;
-sf::Joystick::Axis getAxis() const;
-bool getSignAxis() const;
-unsigned int getButtonJoyStick() const;
-unsigned int getIdJoystick() const;
+    Input();
+    ~Input();
+    explicit Input(const sf::Keyboard::Key& newKey);
+    explicit Input(const sf::Mouse::Button& newButton);
+    explicit Input(const sf::Joystick::Axis& newAxis,
+                   unsigned int newIdJoystick = 0u,
+                   bool newSignAxis = true);
+    explicit Input(unsigned int newButtonJoystick, unsigned int newIdJoystick = 0u);
+    explicit Input(const std::string& str);
+    Input(const Input& input) noexcept;
+    Input& operator=(const Input& input);
+    std::string to_string() const;
+    bool operator==(const Input& input) const;
+    bool operator!=(const Input& input) const;
+    bool isPressed() const;
+    TypeInput getTypeInput() const;
+    sf::Keyboard::Key getKey() const;
+    sf::Mouse::Button getButton() const;
+    sf::Joystick::Axis getAxis() const;
+    bool getSignAxis() const;
+    unsigned int getButtonJoyStick() const;
+    unsigned int getIdJoystick() const;
 
-static void initialize();
-static long unsigned int getJoystickSensitivity();
-static void setJoystickSensitivity(long unsigned int newJoystickSensitivity);
+    static void initialize();
+    static long unsigned int getJoystickSensitivity();
+    static void setJoystickSensitivity(long unsigned int newJoystickSensitivity);
 
 protected:
 

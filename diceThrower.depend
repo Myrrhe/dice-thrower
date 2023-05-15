@@ -475,16 +475,16 @@
 	<iostream>
 	<istream>
 
-1618425283 d:\projects\dicethrower\include\engine.hpp
+1684190270 d:\projects\dicethrower\include\engine.hpp
 	"RoundedRectangleShape.hpp"
-	"Text.hpp"
+	"text/Text.hpp"
 	"TextBox.hpp"
 	<SFML/Graphics.hpp>
 
 1618310274 d:\projects\dicethrower\include\roundedrectangleshape.hpp
 	<SFML/Graphics/Shape.hpp>
 
-1626015426 d:\projects\dicethrower\include\text.hpp
+1684081545 d:\projects\dicethrower\include\text.hpp
 	"ChainText.hpp"
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Drawable.hpp>
@@ -496,11 +496,11 @@
 	<string>
 	<vector>
 
-1626611875 d:\projects\dicethrower\include\textbox.hpp
-	"ChainText.hpp"
+1684190277 d:\projects\dicethrower\include\textbox.hpp
+	"text/ChainText.hpp"
 	"ClickaBleWidget.hpp"
 	"NinePatch.hpp"
-	"Text.hpp"
+	"text/Text.hpp"
 
 1618336240 d:\projects\dicethrower\include\ninepatch.hpp
 	<SFML/Graphics.hpp>
@@ -701,7 +701,7 @@
 	<cmath>
 	<stack>
 
-1626612024 source:d:\projects\dicethrower\src\textbox.cpp
+1684184122 source:d:\projects\dicethrower\src\textbox.cpp
 	"InputManager.hpp"
 	"TextBox.hpp"
 	"Window.hpp"
@@ -736,4 +736,75 @@
 	"Window.hpp"
 	<iostream>
 	<istream>
+
+1684190760 d:\projects\dicethrower\include\text\chaintext.hpp
+	"text/LeafText.hpp"
+	"text/BlockInfoText.hpp"
+	"text/BlockClosingText.hpp"
+
+1684190765 d:\projects\dicethrower\include\text\leaftext.hpp
+	"text/NodeText.hpp"
+	<string>
+
+1618489382 d:\projects\dicethrower\include\text\nodetext.hpp
+	<string>
+
+1684190755 d:\projects\dicethrower\include\text\blockinfotext.hpp
+	"text/InfoText.hpp"
+	"text/NodeText.hpp"
+
+1626014900 d:\projects\dicethrower\include\text\infotext.hpp
+	<SFML/Graphics.hpp>
+
+1684190751 d:\projects\dicethrower\include\text\blockclosingtext.hpp
+	"text/NodeText.hpp"
+
+1684190771 d:\projects\dicethrower\include\text\text.hpp
+	"text/ChainText.hpp"
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/System/String.hpp>
+	<string>
+	<vector>
+
+1684190659 source:d:\projects\dicethrower\src\text\blockclosingtext.cpp
+	"text/BlockClosingText.hpp"
+	"Global.hpp"
+
+1684190673 source:d:\projects\dicethrower\src\text\blockinfotext.cpp
+	"text/BlockInfoText.hpp"
+	"Global.hpp"
+	"func.hpp"
+
+1684190682 source:d:\projects\dicethrower\src\text\chaintext.cpp
+	"text/ChainText.hpp"
+	"func.hpp"
+	<iostream>
+
+1684190687 source:d:\projects\dicethrower\src\text\infotext.cpp
+	"text/InfoText.hpp"
+	"Global.hpp"
+	"func.hpp"
+	<cassert>
+
+1684190690 source:d:\projects\dicethrower\src\text\leaftext.cpp
+	"text/LeafText.hpp"
+
+1684190693 source:d:\projects\dicethrower\src\text\nodetext.cpp
+	"text/NodeText.hpp"
+	<iostream>
+	<istream>
+
+1684190698 source:d:\projects\dicethrower\src\text\text.cpp
+	"text/Text.hpp"
+	"func.hpp"
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<cmath>
+	<stack>
 

@@ -1,9 +1,9 @@
 #ifndef TEXTBOX_HPP
 #define TEXTBOX_HPP
-#include "ChainText.hpp"
+#include "text/ChainText.hpp"
 #include "ClickaBleWidget.hpp"
 #include "NinePatch.hpp"
-#include "Text.hpp"
+#include "text/Text.hpp"
 
 class TextBox : public ClickableWidget
 {

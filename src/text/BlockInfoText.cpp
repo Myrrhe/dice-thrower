@@ -1,10 +1,10 @@
-#include "BlockInfoText.hpp"
+#include "text/BlockInfoText.hpp"
 #include "Global.hpp"
 #include "func.hpp"
 
 BlockInfoText::BlockInfoText() : NodeText(),
-infoText(),
-useInfo()
+    infoText(),
+    useInfo()
 {
     //ctor
 }
@@ -15,22 +15,22 @@ BlockInfoText::~BlockInfoText()
 }
 
 BlockInfoText::BlockInfoText(const BlockInfoText& other) : NodeText(other),
-infoText(other.infoText),
-useInfo(other.useInfo)
+    infoText(other.infoText),
+    useInfo(other.useInfo)
 {
     //copy ctor
 }
 
 BlockInfoText::BlockInfoText(const InfoText& newInfoText) : NodeText(),
-infoText(newInfoText),
-useInfo()
+    infoText(newInfoText),
+    useInfo()
 {
     useInfo.fill(true);
 }
 
 BlockInfoText::BlockInfoText(const std::u32string& str) : NodeText(),
-infoText(),
-useInfo()
+    infoText(),
+    useInfo()
 {
     infoText = str;
     useInfo.fill(false);
@@ -168,17 +168,61 @@ bool BlockInfoText::isUsed(InfoText::Info info) const
 {
     switch (info)
     {
-        case InfoText::Info::FONT:                { return useInfo[0]; break; }
-        case InfoText::Info::CHAR_SIZE:           { return useInfo[1]; break; }
-        case InfoText::Info::LETTER_SPACING:      { return useInfo[2]; break; }
-        case InfoText::Info::LINE_SPACING_FACTOR: { return useInfo[3]; break; }
-        case InfoText::Info::STYLE:               { return useInfo[4]; break; }
-        case InfoText::Info::FILL_COLOR:          { return useInfo[5]; break; }
-        case InfoText::Info::OUTLINE_COLOR:       { return useInfo[6]; break; }
-        case InfoText::Info::BACK_COLOR:          { return useInfo[7]; break; }
-        case InfoText::Info::SIZE_BACK:           { return useInfo[8]; break; }
-        case InfoText::Info::THICKNESS:           { return useInfo[9]; break; }
-        default:                                  { return false;      break; }
+    case InfoText::Info::FONT:
+    {
+        return useInfo[0];
+        break;
+    }
+    case InfoText::Info::CHAR_SIZE:
+    {
+        return useInfo[1];
+        break;
+    }
+    case InfoText::Info::LETTER_SPACING:
+    {
+        return useInfo[2];
+        break;
+    }
+    case InfoText::Info::LINE_SPACING_FACTOR:
+    {
+        return useInfo[3];
+        break;
+    }
+    case InfoText::Info::STYLE:
+    {
+        return useInfo[4];
+        break;
+    }
+    case InfoText::Info::FILL_COLOR:
+    {
+        return useInfo[5];
+        break;
+    }
+    case InfoText::Info::OUTLINE_COLOR:
+    {
+        return useInfo[6];
+        break;
+    }
+    case InfoText::Info::BACK_COLOR:
+    {
+        return useInfo[7];
+        break;
+    }
+    case InfoText::Info::SIZE_BACK:
+    {
+        return useInfo[8];
+        break;
+    }
+    case InfoText::Info::THICKNESS:
+    {
+        return useInfo[9];
+        break;
+    }
+    default:
+    {
+        return false;
+        break;
+    }
     }
 }
 
@@ -186,17 +230,60 @@ void BlockInfoText::setUsed(InfoText::Info info, bool newUsed)
 {
     switch (info)
     {
-        case InfoText::Info::FONT:                { useInfo[0] = newUsed; break; }
-        case InfoText::Info::CHAR_SIZE:           { useInfo[1] = newUsed; break; }
-        case InfoText::Info::LETTER_SPACING:      { useInfo[2] = newUsed; break; }
-        case InfoText::Info::LINE_SPACING_FACTOR: { useInfo[3] = newUsed; break; }
-        case InfoText::Info::STYLE:               { useInfo[4] = newUsed; break; }
-        case InfoText::Info::FILL_COLOR:          { useInfo[5] = newUsed; break; }
-        case InfoText::Info::OUTLINE_COLOR:       { useInfo[6] = newUsed; break; }
-        case InfoText::Info::BACK_COLOR:          { useInfo[7] = newUsed; break; }
-        case InfoText::Info::SIZE_BACK:          { useInfo[8] = newUsed; break; }
-        case InfoText::Info::THICKNESS:           { useInfo[9] = newUsed; break; }
-        default:                                  {                       break; }
+    case InfoText::Info::FONT:
+    {
+        useInfo[0] = newUsed;
+        break;
+    }
+    case InfoText::Info::CHAR_SIZE:
+    {
+        useInfo[1] = newUsed;
+        break;
+    }
+    case InfoText::Info::LETTER_SPACING:
+    {
+        useInfo[2] = newUsed;
+        break;
+    }
+    case InfoText::Info::LINE_SPACING_FACTOR:
+    {
+        useInfo[3] = newUsed;
+        break;
+    }
+    case InfoText::Info::STYLE:
+    {
+        useInfo[4] = newUsed;
+        break;
+    }
+    case InfoText::Info::FILL_COLOR:
+    {
+        useInfo[5] = newUsed;
+        break;
+    }
+    case InfoText::Info::OUTLINE_COLOR:
+    {
+        useInfo[6] = newUsed;
+        break;
+    }
+    case InfoText::Info::BACK_COLOR:
+    {
+        useInfo[7] = newUsed;
+        break;
+    }
+    case InfoText::Info::SIZE_BACK:
+    {
+        useInfo[8] = newUsed;
+        break;
+    }
+    case InfoText::Info::THICKNESS:
+    {
+        useInfo[9] = newUsed;
+        break;
+    }
+    default:
+    {
+        break;
+    }
     }
 }
 

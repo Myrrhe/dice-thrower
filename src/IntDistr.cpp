@@ -4,7 +4,7 @@
 std::stack<RandManager::IdRand> IntDistr::idRand;
 
 IntDistr::IntDistr() :
-values({})
+    values( {})
 {
     //ctor
 }
@@ -15,19 +15,19 @@ IntDistr::~IntDistr()
 }
 
 IntDistr::IntDistr(const IntDistr& other) :
-values(other.values)
+    values(other.values)
 {
     //copy ctor
 }
 
 IntDistr::IntDistr(const std::vector<std::pair<long int, double> >& newValues) :
-values(newValues)
+    values(newValues)
 {
 
 }
 
 IntDistr::IntDistr(const std::vector<std::pair<IntDistr, double> >& newIntDistr) :
-values({})
+    values( {})
 {
     for (long unsigned int i = 0; i < newIntDistr.size(); i++)
     {
@@ -35,7 +35,9 @@ values({})
         {
             long int currV = newIntDistr[i].first[j].first;
             std::vector<std::pair<long int, double> >::iterator it = std::find_if(values.begin(), values.end(), [=](std::pair<long int, double> x)
-                                                                                                                   { return x.first == currV; });
+            {
+                return x.first == currV;
+            });
             if (it == values.end())
             {
                 values.push_back({currV, 0.0});
@@ -47,7 +49,12 @@ values({})
 }
 
 IntDistr::IntDistr(long int c) :
-values({{c, 1.0}})
+    values(
+{
+    {
+        c, 1.0
+    }
+})
 {
 
 }
@@ -70,7 +77,7 @@ std::size_t IntDistr::size() const
 
 std::pair<long int, double>& IntDistr::operator[](std::size_t i)
 {
-   return values[i];
+    return values[i];
 }
 
 const std::pair<long int, double>& IntDistr::operator[](std::size_t i) const
@@ -137,7 +144,9 @@ IntDistr& IntDistr::operator+=(const IntDistr& right)
         {
             long int currV = values[i].first + right.values[j].first;
             std::vector<std::pair<long int, double> >::iterator it = std::find_if(v.begin(), v.end(), [=](std::pair<long int, double> x)
-                                                                                                         { return x.first == currV; });
+            {
+                return x.first == currV;
+            });
             if (it == v.end())
             {
                 v.push_back({currV, 0.0});
@@ -167,7 +176,9 @@ IntDistr& IntDistr::operator-=(const IntDistr& right)
         {
             long int currV = values[i].first - right.values[j].first;
             std::vector<std::pair<long int, double> >::iterator it = std::find_if(v.begin(), v.end(), [=](std::pair<long int, double> x)
-                                                                                                    { return x.first == currV; });
+            {
+                return x.first == currV;
+            });
             if (it == v.end())
             {
                 v.push_back({currV, 0.0});
@@ -197,7 +208,9 @@ IntDistr& IntDistr::operator*=(const IntDistr& right)
         {
             long int currV = values[i].first * right.values[j].first;
             std::vector<std::pair<long int, double> >::iterator it = std::find_if(v.begin(), v.end(), [=](std::pair<long int, double> x)
-                                                                                                    { return x.first == currV; });
+            {
+                return x.first == currV;
+            });
             if (it == v.end())
             {
                 v.push_back({currV, 0.0});
@@ -218,7 +231,7 @@ IntDistr IntDistr::operator*(const IntDistr& right) const
 
 IntDistr IntDistr::operator==(const IntDistr& right) const
 {
-    IntDistr res(std::vector<std::pair<long int, double> >{{0, 0.0}, {1, 0.0}});
+    IntDistr res(std::vector<std::pair<long int, double> > {{0, 0.0}, {1, 0.0}});
     long unsigned int nbValLeft = values.size();
     long unsigned int nbValRight = right.values.size();
     for (long unsigned int i = 0; i < nbValLeft; i++)
@@ -241,7 +254,7 @@ IntDistr IntDistr::operator==(const IntDistr& right) const
 
 IntDistr IntDistr::operator!=(const IntDistr& right) const
 {
-    IntDistr res(std::vector<std::pair<long int, double> >{{0, 0.0}, {1, 0.0}});
+    IntDistr res(std::vector<std::pair<long int, double> > {{0, 0.0}, {1, 0.0}});
     long unsigned int nbValLeft = values.size();
     long unsigned int nbValRight = right.values.size();
     for (long unsigned int i = 0; i < nbValLeft; i++)
@@ -264,7 +277,7 @@ IntDistr IntDistr::operator!=(const IntDistr& right) const
 
 IntDistr IntDistr::operator>(const IntDistr& right) const
 {
-    IntDistr res(std::vector<std::pair<long int, double> >{{0, 0.0}, {1, 0.0}});
+    IntDistr res(std::vector<std::pair<long int, double> > {{0, 0.0}, {1, 0.0}});
     long unsigned int nbValLeft = values.size();
     long unsigned int nbValRight = right.values.size();
     for (long unsigned int i = 0; i < nbValLeft; i++)
@@ -287,7 +300,7 @@ IntDistr IntDistr::operator>(const IntDistr& right) const
 
 IntDistr IntDistr::operator<(const IntDistr& right) const
 {
-    IntDistr res(std::vector<std::pair<long int, double> >{{0, 0.0}, {1, 0.0}});
+    IntDistr res(std::vector<std::pair<long int, double> > {{0, 0.0}, {1, 0.0}});
     long unsigned int nbValLeft = values.size();
     long unsigned int nbValRight = right.values.size();
     for (long unsigned int i = 0; i < nbValLeft; i++)
@@ -310,7 +323,7 @@ IntDistr IntDistr::operator<(const IntDistr& right) const
 
 IntDistr IntDistr::operator>=(const IntDistr& right) const
 {
-    IntDistr res(std::vector<std::pair<long int, double> >{{0, 0.0}, {1, 0.0}});
+    IntDistr res(std::vector<std::pair<long int, double> > {{0, 0.0}, {1, 0.0}});
     long unsigned int nbValLeft = values.size();
     long unsigned int nbValRight = right.values.size();
     for (long unsigned int i = 0; i < nbValLeft; i++)
@@ -333,7 +346,7 @@ IntDistr IntDistr::operator>=(const IntDistr& right) const
 
 IntDistr IntDistr::operator<=(const IntDistr& right) const
 {
-    IntDistr res(std::vector<std::pair<long int, double> >{{0, 0.0}, {1, 0.0}});
+    IntDistr res(std::vector<std::pair<long int, double> > {{0, 0.0}, {1, 0.0}});
     long unsigned int nbValLeft = values.size();
     long unsigned int nbValRight = right.values.size();
     for (long unsigned int i = 0; i < nbValLeft; i++)
@@ -393,7 +406,8 @@ long int IntDistr::operator()() const
     do
     {
         sum += values[i].second;
-    } while (r > sum && i < values.size() - 1);
+    }
+    while (r > sum && i < values.size() - 1);
     return values[i].first;
 }
 

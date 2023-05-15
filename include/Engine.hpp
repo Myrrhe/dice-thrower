@@ -20,7 +20,7 @@
 #ifndef ENGINE_HPP
 #define ENGINE_HPP
 #include "RoundedRectangleShape.hpp"
-#include "Text.hpp"
+#include "text/Text.hpp"
 #include "TextBox.hpp"
 #include <SFML/Graphics.hpp>
 

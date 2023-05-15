@@ -106,16 +106,46 @@ private:
 
 template<InfoText::Info n> struct InfoText::Typer {};
 
-template<> struct InfoText::Typer<InfoText::Info::FONT>                { typedef const sf::Font* Type; };
-template<> struct InfoText::Typer<InfoText::Info::CHAR_SIZE>           { typedef long unsigned int Type; };
-template<> struct InfoText::Typer<InfoText::Info::LETTER_SPACING>      { typedef const std::tuple<bool, float>& Type; };
-template<> struct InfoText::Typer<InfoText::Info::LINE_SPACING_FACTOR> { typedef float Type; };
-template<> struct InfoText::Typer<InfoText::Info::STYLE>               { typedef InfoText::Style Type; };
-template<> struct InfoText::Typer<InfoText::Info::FILL_COLOR>          { typedef const sf::Color& Type; };
-template<> struct InfoText::Typer<InfoText::Info::OUTLINE_COLOR>       { typedef const sf::Color& Type; };
-template<> struct InfoText::Typer<InfoText::Info::BACK_COLOR>          { typedef const sf::Color& Type; };
-template<> struct InfoText::Typer<InfoText::Info::SIZE_BACK>           { typedef const sf::Vector2<float>& Type; };
-template<> struct InfoText::Typer<InfoText::Info::THICKNESS>           { typedef float Type; };
+template<> struct InfoText::Typer<InfoText::Info::FONT>
+{
+    typedef const sf::Font* Type;
+};
+template<> struct InfoText::Typer<InfoText::Info::CHAR_SIZE>
+{
+    typedef long unsigned int Type;
+};
+template<> struct InfoText::Typer<InfoText::Info::LETTER_SPACING>
+{
+    typedef const std::tuple<bool, float>& Type;
+};
+template<> struct InfoText::Typer<InfoText::Info::LINE_SPACING_FACTOR>
+{
+    typedef float Type;
+};
+template<> struct InfoText::Typer<InfoText::Info::STYLE>
+{
+    typedef InfoText::Style Type;
+};
+template<> struct InfoText::Typer<InfoText::Info::FILL_COLOR>
+{
+    typedef const sf::Color& Type;
+};
+template<> struct InfoText::Typer<InfoText::Info::OUTLINE_COLOR>
+{
+    typedef const sf::Color& Type;
+};
+template<> struct InfoText::Typer<InfoText::Info::BACK_COLOR>
+{
+    typedef const sf::Color& Type;
+};
+template<> struct InfoText::Typer<InfoText::Info::SIZE_BACK>
+{
+    typedef const sf::Vector2<float>& Type;
+};
+template<> struct InfoText::Typer<InfoText::Info::THICKNESS>
+{
+    typedef float Type;
+};
 
 InfoText::Info operator++(InfoText::Info& i, int);
 
