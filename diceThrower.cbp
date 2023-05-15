@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="diceThrower" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/diceThrowerD" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DDEBUG=1" />
+					<Add option="-DPERF=0" />
+					<Add directory="include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add option="-std=c++11" />
+				</ResourceCompiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/diceThrowerR" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-fomit-frame-pointer" />
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-DDEBUG=0" />
+					<Add option="-DPERF=0" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-O3" />
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wnon-virtual-dtor" />
+			<Add option="-Wshadow" />
+			<Add option="-Winit-self" />
+			<Add option="-Wredundant-decls" />
+			<Add option="-Wcast-align" />
+			<Add option="-Wundef" />
+			<Add option="-Wfloat-equal" />
+			<Add option="-Winline" />
+			<Add option="-Wunreachable-code" />
+			<Add option="-Wmissing-declarations" />
+			<Add option="-Wmissing-include-dirs" />
+			<Add option="-Wswitch-enum" />
+			<Add option="-Wswitch-default" />
+			<Add option="-Weffc++" />
+			<Add option="-Wzero-as-null-pointer-constant" />
+			<Add option="-Wmain" />
+			<Add option="-pedantic-errors" />
+			<Add option="-pedantic" />
+			<Add option="-Wextra" />
+			<Add option="-Wall" />
+			<Add option="-std=c++1z" />
+			<Add option="-m32" />
+			<Add option='-isystem&quot;C:\Program Files (x86)\SFML\include&quot;' />
+			<Add option='-isystem&quot;C:\Program Files (x86)\thor\include&quot;' />
+			<Add option="-std=c++17" />
+			<Add option="-Wwrite-strings" />
+			<Add option="-Wlogical-op" />
+			<Add option="-Woverloaded-virtual" />
+			<Add option="-Wcast-qual" />
+			<Add option="-Wdisabled-optimization" />
+			<Add option="-Wdiv-by-zero" />
+			<Add option="-Wendif-labels" />
+			<Add option="-Wformat-extra-args" />
+			<Add option="-Wformat-nonliteral" />
+			<Add option="-Wformat-security" />
+			<Add option="-Wformat-y2k" />
+			<Add option="-Wimport" />
+			<Add option="-Winvalid-pch" />
+			<Add option="-Wmissing-braces" />
+			<Add option="-Wmultichar" />
+			<Add option="-Wpacked" />
+			<Add option="-Wpointer-arith" />
+			<Add option="-Wreturn-type" />
+			<Add option="-Wsequence-point" />
+			<Add option="-Wvariadic-macros" />
+			<Add option="-Wstrict-aliasing=1" />
+			<Add option="-Wstrict-overflow=5" />
+			<Add option="-Wunsafe-loop-optimizations" />
+			<Add option="-Wnull-dereference" />
+			<Add option="-Wuninitialized" />
+			<Add option="-Wduplicated-cond" />
+			<Add option="-Wtrampolines" />
+			<Add option="-Wunused-macros" />
+			<Add option="-Wconditionally-supported" />
+			<Add option="-Wdate-time" />
+			<Add option="-Wvarargs" />
+			<Add option="-Wvector-operation-performance" />
+			<Add option="-Wopenmp-simd" />
+			<Add option="-Whsa" />
+			<Add option="-Warray-bounds=2" />
+			<Add option="-Wunused-const-variable=1" />
+			<Add option="-Wuseless-cast" />
+			<Add option="-Wold-style-cast" />
+			<Add option="-Wsign-promo" />
+			<Add option="-Wvirtual-inheritance" />
+			<Add option="-Wnamespaces" />
+			<Add option="-Wstrict-null-sentinel" />
+			<Add option="-Wsync-nand" />
+			<Add option="-Wunused-parameter" />
+			<Add option="-Wunused" />
+			<Add option="-Wsuggest-attribute=pure" />
+			<Add option="-Wsuggest-attribute=const" />
+			<Add option="-Wsuggest-attribute=noreturn" />
+			<Add option="-Wmissing-noreturn" />
+			<Add option="-Wmissing-format-attribute" />
+			<Add option="-Wformat-signedness" />
+			<Add option="-Wsuggest-override" />
+			<Add option="-Wsuggest-final-methods" />
+			<Add option="-Wsuggest-final-types" />
+			<Add option="-Wstack-protector" />
+			<Add option="-Wenum-compare" />
+			<Add option="-Wdouble-promotion" />
+			<Add option="-Wsign-conversion" />
+			<Add option="-Wfloat-conversion" />
+			<Add option="-Wconversion" />
+			<Add option="-Wnoexcept" />
+			<Add option="-Wctor-dtor-privacy" />
+			<Add option="-Wsynth" />
+			<Add option="-Wlto-type-mismatch" />
+			<Add option="-Wliteral-suffix" />
+			<Add option="-Wdelete-non-virtual-dtor" />
+			<Add option="-Wvla" />
+			<Add option="-DSFML_STATIC" />
+		</Compiler>
+		<Linker>
+			<Add option="-static-libstdc++" />
+			<Add option="-static-libgcc" />
+			<Add option="-static" />
+			<Add option="-m32" />
+			<Add option="-pthread" />
+			<Add library="thor-s" />
+			<Add library="sfml-network-s" />
+			<Add library="sfml-audio-s" />
+			<Add library="sfml-graphics-s" />
+			<Add library="sfml-window-s" />
+			<Add library="sfml-system-s" />
+			<Add library="ws2_32" />
+			<Add library="openal32" />
+			<Add library="flac" />
+			<Add library="vorbisenc" />
+			<Add library="vorbisfile" />
+			<Add library="vorbis" />
+			<Add library="ogg" />
+			<Add library="freetype" />
+			<Add library="opengl32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add library="psapi" />
+			<Add library="pthread" />
+			<Add directory="C:/Program Files (x86)/SFML/lib" />
+			<Add directory="C:/Program Files (x86)/thor/lib" />
+		</Linker>
+		<Unit filename="include/BlockClosingText.hpp" />
+		<Unit filename="include/BlockInfoText.hpp" />
+		<Unit filename="include/Button.hpp" />
+		<Unit filename="include/ChainText.hpp" />
+		<Unit filename="include/ClickableWidget.hpp" />
+		<Unit filename="include/Component.hpp" />
+		<Unit filename="include/Engine.hpp" />
+		<Unit filename="include/Entity" />
+		<Unit filename="include/Entity.hpp" />
+		<Unit filename="include/Global.hpp" />
+		<Unit filename="include/InfoText.hpp" />
+		<Unit filename="include/Input.hpp" />
+		<Unit filename="include/InputManager.hpp" />
+		<Unit filename="include/IntDistr.hpp" />
+		<Unit filename="include/LeafText.hpp" />
+		<Unit filename="include/LogManager.hpp" />
+		<Unit filename="include/MouseWheel.hpp" />
+		<Unit filename="include/NinePatch.hpp" />
+		<Unit filename="include/NodeText.hpp" />
+		<Unit filename="include/NonCopyable.hpp" />
+		<Unit filename="include/OsManager.hpp" />
+		<Unit filename="include/PathManager.hpp" />
+		<Unit filename="include/Quaternion.hpp" />
+		<Unit filename="include/RandManager.hpp" />
+		<Unit filename="include/RoundedRectangleShape.hpp" />
+		<Unit filename="include/ScreenCapturer.hpp" />
+		<Unit filename="include/Setting.hpp" />
+		<Unit filename="include/SoundManager.hpp" />
+		<Unit filename="include/System.hpp" />
+		<Unit filename="include/Text.hpp" />
+		<Unit filename="include/TextBox.hpp" />
+		<Unit filename="include/TextureManager.hpp" />
+		<Unit filename="include/Visitor.hpp" />
+		<Unit filename="include/Widget.hpp" />
+		<Unit filename="include/Window.hpp" />
+		<Unit filename="include/func.hpp" />
+		<Unit filename="src/BlockClosingText.cpp" />
+		<Unit filename="src/BlockInfoText.cpp" />
+		<Unit filename="src/Button.cpp" />
+		<Unit filename="src/ChainText.cpp" />
+		<Unit filename="src/ClickableWidget.cpp" />
+		<Unit filename="src/Component.cpp" />
+		<Unit filename="src/Engine.cpp" />
+		<Unit filename="src/Entity.cpp" />
+		<Unit filename="src/Global.cpp" />
+		<Unit filename="src/InfoText.cpp" />
+		<Unit filename="src/Input.cpp" />
+		<Unit filename="src/InputManager.cpp" />
+		<Unit filename="src/IntDistr.cpp" />
+		<Unit filename="src/LeafText.cpp" />
+		<Unit filename="src/LogManager.cpp" />
+		<Unit filename="src/MouseWheel.cpp" />
+		<Unit filename="src/NinePatch.cpp" />
+		<Unit filename="src/NodeText.cpp" />
+		<Unit filename="src/NonCopyable.cpp" />
+		<Unit filename="src/OsManager.cpp" />
+		<Unit filename="src/PathManager.cpp" />
+		<Unit filename="src/Quaternion.cpp" />
+		<Unit filename="src/RandManager.cpp" />
+		<Unit filename="src/RoundedRectangleShape.cpp" />
+		<Unit filename="src/ScreenCapturer.cpp" />
+		<Unit filename="src/Setting.cpp" />
+		<Unit filename="src/SoundManager.cpp" />
+		<Unit filename="src/System.cpp" />
+		<Unit filename="src/Text.cpp" />
+		<Unit filename="src/TextBox.cpp" />
+		<Unit filename="src/TextureManager.cpp" />
+		<Unit filename="src/Visitor.cpp" />
+		<Unit filename="src/Widget.cpp" />
+		<Unit filename="src/Window.cpp" />
+		<Unit filename="src/func.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project project_number="1.00" />
+				<doxyfile_build extract_private="1" extract_static="1" />
+				<doxyfile_warnings />
+				<doxyfile_output man="1" />
+				<doxyfile_dot class_diagrams="1" have_dot="1" />
+				<general />
+			</DoxyBlocks>
+			<AutoVersioning>
+				<Scheme minor_max="10" build_max="0" rev_max="0" rev_rand_max="10" build_times_to_increment_minor="100" />
+				<Settings autoincrement="1" date_declarations="1" use_define="0" update_manifest="1" do_auto_increment="0" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="version.hpp" />
+				<Changes_Log show_changes_editor="0" app_title="released version %M.%m.%b of %p" changeslog_path="ChangesLog.txt" />
+				<Code header_guard="VERSION_HPP" namespace="AutoVersion" prefix="" />
+			</AutoVersioning>
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

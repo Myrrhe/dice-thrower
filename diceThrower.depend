@@ -1,0 +1,739 @@
+# depslib dependency file v1.0
+1626695577 source:c:\users\baudi\desktop\projects\dicethrower\src\chaintext.cpp
+	"ChainText.hpp"
+	"func.hpp"
+	<iostream>
+
+1626643885 c:\users\baudi\desktop\projects\dicethrower\include\chaintext.hpp
+	"LeafText.hpp"
+	"BlockInfoText.hpp"
+	"BlockClosingText.hpp"
+
+1626695528 c:\users\baudi\desktop\projects\dicethrower\include\leaftext.hpp
+	"NodeText.hpp"
+	<string>
+
+1618489382 c:\users\baudi\desktop\projects\dicethrower\include\nodetext.hpp
+	<string>
+
+1626015108 c:\users\baudi\desktop\projects\dicethrower\include\blockinfotext.hpp
+	"InfoText.hpp"
+	"NodeText.hpp"
+
+1626014900 c:\users\baudi\desktop\projects\dicethrower\include\infotext.hpp
+	<SFML/Graphics.hpp>
+
+1618313524 c:\users\baudi\desktop\projects\dicethrower\include\blockclosingtext.hpp
+	"NodeText.hpp"
+
+1618310374 c:\users\baudi\desktop\projects\dicethrower\include\func.hpp
+	"Quaternion.hpp"
+	<SFML/Graphics.hpp>
+	<iostream>
+	<istream>
+	<iterator>
+	<ostream>
+
+1618310421 c:\users\baudi\desktop\projects\dicethrower\include\quaternion.hpp
+	<complex>
+	<istream>
+	<iostream>
+
+1618310388 source:c:\users\baudi\desktop\projects\dicethrower\src\func.cpp
+	"func.hpp"
+	<cmath>
+	<dirent.h>
+	<fstream>
+	<sstream>
+	<chrono>
+
+1618312067 source:c:\users\baudi\desktop\projects\dicethrower\src\intdistr.cpp
+	"IntDistr.hpp"
+	<algorithm>
+
+1618311786 c:\users\baudi\desktop\projects\dicethrower\include\intdistr.hpp
+	"RandManager.hpp"
+	<iostream>
+	<istream>
+	<stack>
+	<vector>
+
+1618310158 c:\users\baudi\desktop\projects\dicethrower\include\randmanager.hpp
+	<array>
+	<random>
+
+1626695528 source:c:\users\baudi\desktop\projects\dicethrower\src\leaftext.cpp
+	"LeafText.hpp"
+
+1618309466 source:c:\users\baudi\desktop\projects\dicethrower\src\logmanager.cpp
+	"LogManager.hpp"
+	"PathManager.hpp"
+	"OsManager.hpp"
+	<fstream>
+	<iostream>
+	<istream>
+
+1618309450 c:\users\baudi\desktop\projects\dicethrower\include\logmanager.hpp
+	<string>
+
+1618309190 c:\users\baudi\desktop\projects\dicethrower\include\pathmanager.hpp
+	<string>
+
+1618571367 c:\users\baudi\desktop\projects\dicethrower\include\osmanager.hpp
+	<string>
+	<SFML/Graphics.hpp>
+
+1618309794 source:c:\users\baudi\desktop\projects\dicethrower\src\blockclosingtext.cpp
+	"BlockClosingText.hpp"
+	"Global.hpp"
+
+1618313524 c:\users\baudi\desktop\projects\dicethrower\include\global.hpp
+	<string>
+
+1626015108 source:c:\users\baudi\desktop\projects\dicethrower\src\blockinfotext.cpp
+	"BlockInfoText.hpp"
+	"Global.hpp"
+	"func.hpp"
+
+1618311436 source:c:\users\baudi\desktop\projects\dicethrower\src\global.cpp
+	"Global.hpp"
+
+1626014900 source:c:\users\baudi\desktop\projects\dicethrower\src\infotext.cpp
+	"InfoText.hpp"
+	"Global.hpp"
+	"func.hpp"
+	<cassert>
+
+1618310840 source:c:\users\baudi\desktop\projects\dicethrower\src\mousewheel.cpp
+	"MouseWheel.hpp"
+
+1618310826 c:\users\baudi\desktop\projects\dicethrower\include\mousewheel.hpp
+
+1618489433 source:c:\users\baudi\desktop\projects\dicethrower\src\nodetext.cpp
+	"NodeText.hpp"
+	<iostream>
+	<istream>
+
+1618571352 source:c:\users\baudi\desktop\projects\dicethrower\src\osmanager.cpp
+	"OsManager.hpp"
+	<istream>
+	<iostream>
+	<sys/resource.h>
+	<sys/stat.h>
+	<unistd.h>
+	<ctime>
+	<direct.h>
+	<Windows.h>
+	<winnt.h>
+
+1618309190 source:c:\users\baudi\desktop\projects\dicethrower\src\pathmanager.cpp
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"func.hpp"
+	<fstream>
+
+1618310437 source:c:\users\baudi\desktop\projects\dicethrower\src\quaternion.cpp
+	"Quaternion.hpp"
+	<cmath>
+
+1618310179 source:c:\users\baudi\desktop\projects\dicethrower\src\randmanager.cpp
+	"../include/RandManager.hpp"
+	"../include/OsManager.hpp"
+	<istream>
+	<iostream>
+	<fstream>
+	<sstream>
+	<ctime>
+	<array>
+
+1618310508 source:c:\users\baudi\desktop\projects\dicethrower\src\roundedrectangleshape.cpp
+	"RoundedRectangleShape.hpp"
+	"func.hpp"
+	<cmath>
+
+1618310274 c:\users\baudi\desktop\projects\dicethrower\include\roundedrectangleshape.hpp
+	<SFML/Graphics/Shape.hpp>
+
+1618309317 source:c:\users\baudi\desktop\projects\dicethrower\src\screencapturer.cpp
+	"Global.hpp"
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"ScreenCapturer.hpp"
+	"Window.hpp"
+	"func.hpp"
+	<sys/stat.h>
+	<unistd.h>
+
+1618309301 c:\users\baudi\desktop\projects\dicethrower\include\screencapturer.hpp
+	<SFML/Graphics.hpp>
+
+1618612852 c:\users\baudi\desktop\projects\dicethrower\include\window.hpp
+	<stack>
+	<SFML/Graphics.hpp>
+
+1618310777 source:c:\users\baudi\desktop\projects\dicethrower\src\setting.cpp
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"Setting.hpp"
+	"func.hpp"
+	<fstream>
+
+1618310714 c:\users\baudi\desktop\projects\dicethrower\include\setting.hpp
+	<string>
+
+1618573199 source:c:\users\baudi\desktop\projects\dicethrower\src\window.cpp
+	"LogManager.hpp"
+	"MouseWheel.hpp"
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"Window.hpp"
+	<iostream>
+	<istream>
+
+1618405083 source:c:\users\baudi\desktop\projects\dicethrower\src\clickablewidget.cpp
+	"ClickableWidget.hpp"
+	<iostream>
+	<istream>
+
+1618315264 c:\users\baudi\desktop\projects\dicethrower\include\clickablewidget.hpp
+	"Widget.hpp"
+
+1618315144 c:\users\baudi\desktop\projects\dicethrower\include\widget.hpp
+	<SFML/Graphics.hpp>
+
+1627040661 source:c:\users\baudi\desktop\projects\dicethrower\src\main.cpp
+	<SFML/Graphics.hpp>
+	"Engine.hpp"
+	"Global.hpp"
+	"InputManager.hpp"
+	"LogManager.hpp"
+	"MouseWheel.hpp"
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"ScreenCapturer.hpp"
+	"Setting.hpp"
+	"SoundManager.hpp"
+	"Window.hpp"
+	<iostream>
+	<istream>
+
+1618425283 c:\users\baudi\desktop\projects\dicethrower\include\engine.hpp
+	"RoundedRectangleShape.hpp"
+	"Text.hpp"
+	"TextBox.hpp"
+	<SFML/Graphics.hpp>
+
+1626015426 c:\users\baudi\desktop\projects\dicethrower\include\text.hpp
+	"ChainText.hpp"
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/System/String.hpp>
+	<string>
+	<vector>
+
+1618404503 source:c:\users\baudi\desktop\projects\dicethrower\src\widget.cpp
+	"LogManager.hpp"
+	"Widget.hpp"
+	"func.hpp"
+	<iostream>
+	<istream>
+
+1618614560 source:c:\users\baudi\desktop\projects\dicethrower\src\engine.cpp
+	"Engine.hpp"
+	"Global.hpp"
+	"InputManager.hpp"
+	"LogManager.hpp"
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"ScreenCapturer.hpp"
+	"Setting.hpp"
+	"Window.hpp"
+	"func.hpp"
+	<cmath>
+	<iostream>
+	<istream>
+
+1626553255 source:c:\users\baudi\desktop\projects\dicethrower\src\text.cpp
+	"Text.hpp"
+	"func.hpp"
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<cmath>
+	<stack>
+
+1618312566 source:c:\users\baudi\desktop\projects\dicethrower\src\texturemanager.cpp
+	"TextureManager.hpp"
+
+1618313523 c:\users\baudi\desktop\projects\dicethrower\include\texturemanager.hpp
+
+1618312955 source:c:\users\baudi\desktop\projects\dicethrower\src\button.cpp
+	"Button.hpp"
+	"Window.hpp"
+	<iostream>
+	<istream>
+
+1618314149 c:\users\baudi\desktop\projects\dicethrower\include\button.hpp
+	"ClickableWidget.hpp"
+
+1626612024 source:c:\users\baudi\desktop\projects\dicethrower\src\textbox.cpp
+	"InputManager.hpp"
+	"TextBox.hpp"
+	"Window.hpp"
+	"func.hpp"
+	<iostream>
+	<istream>
+
+1626611875 c:\users\baudi\desktop\projects\dicethrower\include\textbox.hpp
+	"ChainText.hpp"
+	"ClickaBleWidget.hpp"
+	"NinePatch.hpp"
+	"Text.hpp"
+
+1618585072 source:c:\users\baudi\desktop\projects\dicethrower\src\ninepatch.cpp
+	"NinePatch.hpp"
+	"func.hpp"
+	<iostream>
+	<istream>
+
+1618336240 c:\users\baudi\desktop\projects\dicethrower\include\ninepatch.hpp
+	<SFML/Graphics.hpp>
+
+1618332891 c:\users\baudi\desktop\projects\dicethrower\include\swninepatch.hpp
+	<SFML/Graphics.hpp>
+
+1618332948 source:c:\users\baudi\desktop\projects\dicethrower\src\swninepatch.cpp
+	"SwNinePatch.hpp"
+
+1618613367 c:\users\baudi\desktop\projects\dicethrower\include\inputmanager.hpp
+	"Input.hpp"
+
+1618659739 source:c:\users\baudi\desktop\projects\dicethrower\src\inputmanager.cpp
+	"InputManager.hpp"
+	"Window.hpp"
+	<SFML/Graphics.hpp>
+
+1618426080 c:\users\baudi\desktop\projects\dicethrower\include\input.hpp
+	<iostream>
+	<istream>
+	<SFML/Graphics.hpp>
+
+1618426154 source:c:\users\baudi\desktop\projects\dicethrower\src\input.cpp
+	"Input.hpp"
+	"func.hpp"
+
+1618433754 source:c:\users\baudi\desktop\projects\dicethrower\src\soundmanager.cpp
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"Setting.hpp"
+	"SoundManager.hpp"
+	"func.hpp"
+
+1618433754 c:\users\baudi\desktop\projects\dicethrower\include\soundmanager.hpp
+	<SFML/Audio.hpp>
+
+1625593522 source:c:\users\baudi\desktop\projects\dicethrower\src\visitor.cpp
+	"Visitor.hpp"
+	"Global.hpp"
+	"func.hpp"
+
+1625593364 c:\users\baudi\desktop\projects\dicethrower\include\visitor.hpp
+
+1625597862 source:c:\users\baudi\desktop\projects\dicethrower\src\entity.cpp
+	"Entity.hpp"
+	"Global.hpp"
+	"func.hpp"
+
+1625598869 c:\users\baudi\desktop\projects\dicethrower\include\entity.hpp
+
+1625598186 source:c:\users\baudi\desktop\projects\dicethrower\src\noncopyable.cpp
+	"NonCopyable.hpp"
+
+1625598139 c:\users\baudi\desktop\projects\dicethrower\include\noncopyable.hpp
+
+1625598293 source:c:\users\baudi\desktop\projects\dicethrower\src\component.cpp
+	"Component.hpp"
+	"Global.hpp"
+	"func.hpp"
+
+1625598397 c:\users\baudi\desktop\projects\dicethrower\include\component.hpp
+	"NonCopyable.hpp"
+	"Entity.hpp"
+
+1625598869 source:c:\users\baudi\desktop\projects\dicethrower\src\system.cpp
+	"System.hpp"
+	"Global.hpp"
+	"func.hpp"
+
+1625598793 c:\users\baudi\desktop\projects\dicethrower\include\system.hpp
+
+1618309794 source:d:\projects\dicethrower\src\blockclosingtext.cpp
+	"BlockClosingText.hpp"
+	"Global.hpp"
+
+1618313524 d:\projects\dicethrower\include\blockclosingtext.hpp
+	"NodeText.hpp"
+
+1618489382 d:\projects\dicethrower\include\nodetext.hpp
+	<string>
+
+1618313524 d:\projects\dicethrower\include\global.hpp
+	<string>
+
+1626015108 source:d:\projects\dicethrower\src\blockinfotext.cpp
+	"BlockInfoText.hpp"
+	"Global.hpp"
+	"func.hpp"
+
+1626015108 d:\projects\dicethrower\include\blockinfotext.hpp
+	"InfoText.hpp"
+	"NodeText.hpp"
+
+1626014900 d:\projects\dicethrower\include\infotext.hpp
+	<SFML/Graphics.hpp>
+
+1618310374 d:\projects\dicethrower\include\func.hpp
+	"Quaternion.hpp"
+	<SFML/Graphics.hpp>
+	<iostream>
+	<istream>
+	<iterator>
+	<ostream>
+
+1618310421 d:\projects\dicethrower\include\quaternion.hpp
+	<complex>
+	<istream>
+	<iostream>
+
+1618312955 source:d:\projects\dicethrower\src\button.cpp
+	"Button.hpp"
+	"Window.hpp"
+	<iostream>
+	<istream>
+
+1618314149 d:\projects\dicethrower\include\button.hpp
+	"ClickableWidget.hpp"
+
+1618315264 d:\projects\dicethrower\include\clickablewidget.hpp
+	"Widget.hpp"
+
+1618315144 d:\projects\dicethrower\include\widget.hpp
+	<SFML/Graphics.hpp>
+
+1618612852 d:\projects\dicethrower\include\window.hpp
+	<stack>
+	<SFML/Graphics.hpp>
+
+1626695577 source:d:\projects\dicethrower\src\chaintext.cpp
+	"ChainText.hpp"
+	"func.hpp"
+	<iostream>
+
+1626643885 d:\projects\dicethrower\include\chaintext.hpp
+	"LeafText.hpp"
+	"BlockInfoText.hpp"
+	"BlockClosingText.hpp"
+
+1626695528 d:\projects\dicethrower\include\leaftext.hpp
+	"NodeText.hpp"
+	<string>
+
+1618405083 source:d:\projects\dicethrower\src\clickablewidget.cpp
+	"ClickableWidget.hpp"
+	<iostream>
+	<istream>
+
+1625598293 source:d:\projects\dicethrower\src\component.cpp
+	"Component.hpp"
+	"Global.hpp"
+	"func.hpp"
+
+1625598397 d:\projects\dicethrower\include\component.hpp
+	"NonCopyable.hpp"
+	"Entity.hpp"
+
+1625598139 d:\projects\dicethrower\include\noncopyable.hpp
+
+1625598869 d:\projects\dicethrower\include\entity.hpp
+
+1618614560 source:d:\projects\dicethrower\src\engine.cpp
+	"Engine.hpp"
+	"Global.hpp"
+	"InputManager.hpp"
+	"LogManager.hpp"
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"ScreenCapturer.hpp"
+	"Setting.hpp"
+	"Window.hpp"
+	"func.hpp"
+	<cmath>
+	<iostream>
+	<istream>
+
+1618425283 d:\projects\dicethrower\include\engine.hpp
+	"RoundedRectangleShape.hpp"
+	"Text.hpp"
+	"TextBox.hpp"
+	<SFML/Graphics.hpp>
+
+1618310274 d:\projects\dicethrower\include\roundedrectangleshape.hpp
+	<SFML/Graphics/Shape.hpp>
+
+1626015426 d:\projects\dicethrower\include\text.hpp
+	"ChainText.hpp"
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/System/String.hpp>
+	<string>
+	<vector>
+
+1626611875 d:\projects\dicethrower\include\textbox.hpp
+	"ChainText.hpp"
+	"ClickaBleWidget.hpp"
+	"NinePatch.hpp"
+	"Text.hpp"
+
+1618336240 d:\projects\dicethrower\include\ninepatch.hpp
+	<SFML/Graphics.hpp>
+
+1618613367 d:\projects\dicethrower\include\inputmanager.hpp
+	"Input.hpp"
+
+1618426080 d:\projects\dicethrower\include\input.hpp
+	<iostream>
+	<istream>
+	<SFML/Graphics.hpp>
+
+1618309450 d:\projects\dicethrower\include\logmanager.hpp
+	<string>
+
+1618571367 d:\projects\dicethrower\include\osmanager.hpp
+	<string>
+	<SFML/Graphics.hpp>
+
+1618309190 d:\projects\dicethrower\include\pathmanager.hpp
+	<string>
+
+1618309301 d:\projects\dicethrower\include\screencapturer.hpp
+	<SFML/Graphics.hpp>
+
+1618310714 d:\projects\dicethrower\include\setting.hpp
+	<string>
+
+1625597862 source:d:\projects\dicethrower\src\entity.cpp
+	"Entity.hpp"
+	"Global.hpp"
+	"func.hpp"
+
+1618310388 source:d:\projects\dicethrower\src\func.cpp
+	"func.hpp"
+	<cmath>
+	<dirent.h>
+	<fstream>
+	<sstream>
+	<chrono>
+
+1618311436 source:d:\projects\dicethrower\src\global.cpp
+	"Global.hpp"
+
+1626014900 source:d:\projects\dicethrower\src\infotext.cpp
+	"InfoText.hpp"
+	"Global.hpp"
+	"func.hpp"
+	<cassert>
+
+1618426154 source:d:\projects\dicethrower\src\input.cpp
+	"Input.hpp"
+	"func.hpp"
+
+1618659739 source:d:\projects\dicethrower\src\inputmanager.cpp
+	"InputManager.hpp"
+	"Window.hpp"
+	<SFML/Graphics.hpp>
+
+1618312067 source:d:\projects\dicethrower\src\intdistr.cpp
+	"IntDistr.hpp"
+	<algorithm>
+
+1618311786 d:\projects\dicethrower\include\intdistr.hpp
+	"RandManager.hpp"
+	<iostream>
+	<istream>
+	<stack>
+	<vector>
+
+1618310158 d:\projects\dicethrower\include\randmanager.hpp
+	<array>
+	<random>
+
+1626695528 source:d:\projects\dicethrower\src\leaftext.cpp
+	"LeafText.hpp"
+
+1618309466 source:d:\projects\dicethrower\src\logmanager.cpp
+	"LogManager.hpp"
+	"PathManager.hpp"
+	"OsManager.hpp"
+	<fstream>
+	<iostream>
+	<istream>
+
+1627040661 source:d:\projects\dicethrower\src\main.cpp
+	<SFML/Graphics.hpp>
+	"Engine.hpp"
+	"Global.hpp"
+	"InputManager.hpp"
+	"LogManager.hpp"
+	"MouseWheel.hpp"
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"ScreenCapturer.hpp"
+	"Setting.hpp"
+	"SoundManager.hpp"
+	"Window.hpp"
+	<iostream>
+	<istream>
+
+1618310826 d:\projects\dicethrower\include\mousewheel.hpp
+
+1618433754 d:\projects\dicethrower\include\soundmanager.hpp
+	<SFML/Audio.hpp>
+
+1618310840 source:d:\projects\dicethrower\src\mousewheel.cpp
+	"MouseWheel.hpp"
+
+1618585072 source:d:\projects\dicethrower\src\ninepatch.cpp
+	"NinePatch.hpp"
+	"func.hpp"
+	<iostream>
+	<istream>
+
+1618489433 source:d:\projects\dicethrower\src\nodetext.cpp
+	"NodeText.hpp"
+	<iostream>
+	<istream>
+
+1625598186 source:d:\projects\dicethrower\src\noncopyable.cpp
+	"NonCopyable.hpp"
+
+1618571352 source:d:\projects\dicethrower\src\osmanager.cpp
+	"OsManager.hpp"
+	<istream>
+	<iostream>
+	<sys/resource.h>
+	<sys/stat.h>
+	<unistd.h>
+	<ctime>
+	<direct.h>
+	<Windows.h>
+	<winnt.h>
+
+1618309190 source:d:\projects\dicethrower\src\pathmanager.cpp
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"func.hpp"
+	<fstream>
+
+1618310437 source:d:\projects\dicethrower\src\quaternion.cpp
+	"Quaternion.hpp"
+	<cmath>
+
+1618310179 source:d:\projects\dicethrower\src\randmanager.cpp
+	"../include/RandManager.hpp"
+	"../include/OsManager.hpp"
+	<istream>
+	<iostream>
+	<fstream>
+	<sstream>
+	<ctime>
+	<array>
+
+1618310508 source:d:\projects\dicethrower\src\roundedrectangleshape.cpp
+	"RoundedRectangleShape.hpp"
+	"func.hpp"
+	<cmath>
+
+1618309317 source:d:\projects\dicethrower\src\screencapturer.cpp
+	"Global.hpp"
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"ScreenCapturer.hpp"
+	"Window.hpp"
+	"func.hpp"
+	<sys/stat.h>
+	<unistd.h>
+
+1618310777 source:d:\projects\dicethrower\src\setting.cpp
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"Setting.hpp"
+	"func.hpp"
+	<fstream>
+
+1618433754 source:d:\projects\dicethrower\src\soundmanager.cpp
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"Setting.hpp"
+	"SoundManager.hpp"
+	"func.hpp"
+
+1625598869 source:d:\projects\dicethrower\src\system.cpp
+	"System.hpp"
+	"Global.hpp"
+	"func.hpp"
+
+1625598793 d:\projects\dicethrower\include\system.hpp
+
+1626553255 source:d:\projects\dicethrower\src\text.cpp
+	"Text.hpp"
+	"func.hpp"
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<cmath>
+	<stack>
+
+1626612024 source:d:\projects\dicethrower\src\textbox.cpp
+	"InputManager.hpp"
+	"TextBox.hpp"
+	"Window.hpp"
+	"func.hpp"
+	<iostream>
+	<istream>
+
+1618312566 source:d:\projects\dicethrower\src\texturemanager.cpp
+	"TextureManager.hpp"
+
+1618313523 d:\projects\dicethrower\include\texturemanager.hpp
+
+1625593522 source:d:\projects\dicethrower\src\visitor.cpp
+	"Visitor.hpp"
+	"Global.hpp"
+	"func.hpp"
+
+1625593364 d:\projects\dicethrower\include\visitor.hpp
+
+1618404503 source:d:\projects\dicethrower\src\widget.cpp
+	"LogManager.hpp"
+	"Widget.hpp"
+	"func.hpp"
+	<iostream>
+	<istream>
+
+1618573199 source:d:\projects\dicethrower\src\window.cpp
+	"LogManager.hpp"
+	"MouseWheel.hpp"
+	"OsManager.hpp"
+	"PathManager.hpp"
+	"Window.hpp"
+	<iostream>
+	<istream>
+
