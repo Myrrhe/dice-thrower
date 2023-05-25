@@ -33,3 +33,7 @@
 
 # Doxygen generated documentation
 doc/**
+
+# Code::Blocks
+*.depend
+*.layout
